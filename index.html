@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>Enclave Research</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
 
 </head>
 
@@ -27,7 +28,8 @@ Historically, the open source software community rightfully was extremely wary o
 
 <h2 class="display-6">Primitives for Building Enclaves</h2>
 
-<table class="table table-responsive" style="font-size:0.75rem;">
+<div class="card" style="font-size:0.75rem;">
+<table class="table table-responsive" >
 <thead>
   <tr>
     <th scope="col" style="width:25%;">Technology</th>
@@ -35,28 +37,15 @@ Historically, the open source software community rightfully was extremely wary o
     <th scope="col">Resources</th>
     <th scope="col">Key Mechanisms</th>
     <th scope="col">Attestation Mechanism</th>
-    <th scope="col">TCB</th>
-    <th scope="col">Kernel-Level Enclaves</th>
-    <th scope="col">Legacy Support</th>
-    <th scope="col">Real Time</th>
+    <th scope="col">Trusted Computing Base (TCB)</th>
+    <th scope="col">VM Enclave Support</th>
+    <th scope="col">Legacy App Support</th>
+    <th scope="col">Real Time Support</th>
     <th scope="col">Availability</th>
     <th scope="col">Physical Defenses</th>
   </tr>
 </thead>
-<tbody>
-  <tr>
-    <td>Physically Separate Processors</td>
-    <td>*</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
+<tbody class="table-group-divider">
   <tr>
     <td>Dedicated Processor Cores</td>
     <td>*</td>
@@ -64,11 +53,11 @@ Historically, the open source software community rightfully was extremely wary o
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><span class="badge text-bg-secondary">IMP</span></td>
   </tr>
   <tr>
     <td>Virtualization + Trusted Boot (E.g. Intel TXT)</td>
@@ -77,50 +66,61 @@ Historically, the open source software community rightfully was extremely wary o
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><span class="badge text-bg-secondary">IMP</span></td>
+    <td><span class="badge text-bg-secondary">IMP</span></td>
+    <td><i class="bi bi-x-lg"></i></td>
   </tr>
   <tr>
-    <td>Custom Processor Design</td>
-    <td>-</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Intel Software Guard Extensions (SGX)</td>
+    <td><a href="https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html">Intel Software Guard Extensions (SGX)</a></td>
     <td>x86</td>
     <td><a href="https://eprint.iacr.org/2016/086">Intel SGX Explained</a></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+
+    <td>
+		All-in-one hardware extension for enclave segments of processes. Added instructions to the ISA (EENTER, ECREATE, <em>etc.</em>). Enclave page cache (EPC) is encrypted before being written to DRAM.
+	</td>
+    <td>
+		Hardware generates reports. Remote attestation uses Intel-provided provisioning and quoting enclaves.
+	</td>
+    <td>
+		<ul>
+			<li>proprietary hardware stack, new microcode</li>
+			<li>closed source Intel-provided enclaves</li>
+			<li>Intel SGX SDK Libraries</li>
+		</ul>
+	</td>
+    <td><i class="bi bi-x-lg"></i></td>
+    <td><i class="bi bi-x-lg"></i></td>
+    <td><i class="bi bi-x-lg"></i></td>
+    <td><i class="bi bi-x-lg"></i></td>
+    <td><span class="badge text-bg-primary">ME</span></td>
   </tr>
+
+<!-- ##########################################################################
+  INTEL TDX
+########################################################################### -->
   <tr>
-    <td>Intel Trust Domain Extensions (TDX)</td>
+    <td><a href="https://www.intel.com/content/www/us/en/developer/articles/technical/intel-trust-domain-extensions.html">Intel Trust Domain Extensions (TDX)</a></td>
     <td>x86</td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>
+		All-in-one hardware extension for VM enclaves. Added instructions to the ISA (SEAMCALL, <em>etc.</em>). Total memory encryption is used with different keys for VM Enclaves.
+	</td>
+    <td>
+		Hardware generates reports. Remote attestation uses Intel-provided provisioning and quoting enclaves.
+	</td>
+    <td>
+		<ul>
+			<li>proprietary hardware stack, new microcode</li>
+			<li>closed source Intel-provided enclaves</li>
+		</ul>
+	</td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-x-lg"></i></td>
+    <td><i class="bi bi-x-lg"></i></td>
+    <td><span class="badge text-bg-primary">ME</span></td>
   </tr>
   <tr>
     <td>AMD Secure Encrypted Virtualization (SEV), <br>SEV Encrypted State (SEV-ES), <br>SEV Secure Nested Paging (SEV-SNP)</td>
@@ -129,11 +129,11 @@ Historically, the open source software community rightfully was extremely wary o
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-x-lg"></i></td>
+    <td><i class="bi bi-x-lg"></i></td>
+    <td><span class="badge text-bg-primary">ME</span></td>
   </tr>
   <tr>
     <td>ARM TrustZone + Bus Security</td>
@@ -142,11 +142,11 @@ Historically, the open source software community rightfully was extremely wary o
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><span class="badge text-bg-secondary">IMP</span></td>
   </tr>
   <tr>
     <td>ARM Confidential Compute Architecture (CCA)</td>
@@ -155,11 +155,11 @@ Historically, the open source software community rightfully was extremely wary o
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><span class="badge text-bg-secondary">IMP</span></td>
   </tr>
   <tr>
     <td>Capability Hardware Enhanced<br>RISC Instructions (CHERI)</td>
@@ -168,11 +168,11 @@ Historically, the open source software community rightfully was extremely wary o
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
   </tr>
   <tr>
     <td>RISC-V Monitor Mode</td>
@@ -181,11 +181,11 @@ Historically, the open source software community rightfully was extremely wary o
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><span class="badge text-bg-secondary">IMP</span></td>
   </tr>
   <tr>
     <td>Pure Software Isolation</td>
@@ -194,19 +194,68 @@ Historically, the open source software community rightfully was extremely wary o
     <td></td>
     <td></td>
     <td></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><i class="bi bi-x-lg"></i></td>
+  </tr>
+  <tr>
+    <td>Custom Processor Design/FPGA</td>
+    <td>*</td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
+    <td><i class="bi bi-check-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><i class="bi bi-x-lg"></i></td>
+    <td><i class="bi bi-x-lg"></i></td>
+    <td><span class="badge text-bg-primary">ME</span></td>
   </tr>
 </tbody>
 </table>
+<div class="card-body">
+<p class="card-text">
+
+<table class="table table-borderless table-responsive">
+	<thead>
+	<tr>
+      <th>Key</th>
+      <th></th>
+    </tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span class="badge text-bg-primary">ME</span></td>
+			<td>Memory encryption. Bus snooping may reveal access patterns.</td>
+		</tr>
+		<tr>
+			<td><span class="badge text-bg-secondary">IMP</span></td>
+			<td>Implementation defined Feature.</td>
+		</tr>
+		<tr>
+			<td><i class="bi bi-question-lg"></i></td>
+			<td>Support is unclear or unresearched.</td>
+		</tr>
+	</tbody>
+</table>
+</p>
+</div>
+
+</div>
+
+<p>
+</p>
+
+
+
+
 </div>
 
 
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 
 </html>
