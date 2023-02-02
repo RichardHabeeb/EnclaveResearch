@@ -1,11 +1,212 @@
  <!DOCTYPE html>
 <html>
 <head>
-<title>Title of the document</title>
+	<title>Enclave Research</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
 </head>
 
 <body>
-The content of the document......
+<div class="container">
+<h1 class="display-3">Enclave Research</h1>
+
+<p>
+This repo gathers, categorizes, and compares knowledge on enclaves and trusted execution environments (TEEs). Note that different authors and different domains use the term “enclave” and “TEE” to mean similar things, I view this mostly as a difference of terminology for the purposes of this document.
+</p>
+
+<h2 class="display-6">What are Enclaves</h2>
+
+<p>
+Since the early 2000's much research has been devoted to dealing with the problem a large, potentially untrustworthy software and hardware stack. While we normally expect supervisor and hypervisor software to isolate processes or VMs from each other, enclaves further expand this security model to also include isolation from some combination of either an OS, hypervisor, or even aspects of the physical hardware. Typically, enclaves are also coupled with an attestation mechanism, which allows a remote party to ensure an enclave is running securely.
+</p>
+
+<p>
+Historically, the open source software community rightfully was extremely wary of the technologies used to build enclaves. The technologies were primarily aimed to be applied as a way to prevent users from modifiying their own computers and to enable DRM and has been criticized as antithetical to the philosophy of open source software. Today the technology has found a more useful place in the realms of privacy sensitive applications and safety-critical systems; the former is interesting because it inverts the model of DRM--instead of vendors not trusting end users with their devices, now it's the user's who do not trust the cloud vendor's servers.
+</p>
+
+
+<h2 class="display-6">Primitives for Building Enclaves</h2>
+
+<table class="table table-responsive" style="font-size:0.75rem;">
+<thead>
+  <tr>
+    <th scope="col" style="width:25%;">Technology</th>
+    <th scope="col">HW Arch</th>
+    <th scope="col">Resources</th>
+    <th scope="col">Key Mechanisms</th>
+    <th scope="col">Attestation Mechanism</th>
+    <th scope="col">TCB</th>
+    <th scope="col">Kernel-Level Enclaves</th>
+    <th scope="col">Legacy Support</th>
+    <th scope="col">Real Time</th>
+    <th scope="col">Availability</th>
+    <th scope="col">Physical Defenses</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Physically Separate Processors</td>
+    <td>*</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Dedicated Processor Cores</td>
+    <td>*</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Virtualization + Trusted Boot (E.g. Intel TXT)</td>
+    <td>*</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Custom Processor Design</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Intel Software Guard Extensions (SGX)</td>
+    <td>x86</td>
+    <td><a href="https://eprint.iacr.org/2016/086">Intel SGX Explained</a></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Intel Trust Domain Extensions (TDX)</td>
+    <td>x86</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>AMD Secure Encrypted Virtualization (SEV), <br>SEV Encrypted State (SEV-ES), <br>SEV Secure Nested Paging (SEV-SNP)</td>
+    <td>x86</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>ARM TrustZone + Bus Security</td>
+    <td>ARMv7, ARMv8</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>ARM Confidential Compute Architecture (CCA)</td>
+    <td>ARMv9</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Capability Hardware Enhanced<br>RISC Instructions (CHERI)</td>
+    <td>ARMv8</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>RISC-V Monitor Mode</td>
+    <td>RISC-V</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Pure Software Isolation</td>
+    <td>*</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 
 </html>
