@@ -12,10 +12,10 @@
 <h1 class="display-3">Enclave Research</h1>
 
 <p>
-This repo gathers, categorizes, and compares knowledge on enclaves and trusted execution environments (TEEs). Note that different authors and different domains use the term “enclave” and “TEE” to mean similar things, I view this mostly as a difference of terminology for the purposes of this document.
+This repo gathers, categorizes, and compares knowledge on computation enclaves and trusted execution environments (TEEs). Note that different researchers and developers use the term "enclave" and "TEE" to mean similar things, I view this mostly as a difference of terminology for the purposes of this document.
 </p>
 
-<h2 class="display-6">What are Enclaves</h2>
+<h2 class="display-6">What are Enclaves?</h2>
 
 <p>
 Since the early 2000's much research has been devoted to dealing with the problem a large, potentially untrustworthy software and hardware stack. While we normally expect supervisor and hypervisor software to isolate processes or VMs from each other, enclaves further expand this security model to also include isolation from some combination of either an OS, hypervisor, or even aspects of the physical hardware. Typically, enclaves are also coupled with an attestation mechanism, which allows a remote party to ensure an enclave is running securely.
@@ -105,7 +105,7 @@ Historically, the open source software community rightfully was extremely wary o
     <td>x86</td>
     <td></td>
     <td>
-		All-in-one hardware extension for VM enclaves. Added instructions to the ISA (SEAMCALL, <em>etc.</em>). Total memory encryption is used with different keys for VM Enclaves.
+		All-in-one hardware extension for VM enclaves. Added instructions to the ISA (SEAMCALL, <em>etc.</em>). Total memory encryption (TKTME) is used with different keys for VM Enclaves.
 	</td>
     <td>
 		Hardware generates reports. Remote attestation uses Intel-provided provisioning and quoting enclaves.
@@ -139,9 +139,19 @@ Historically, the open source software community rightfully was extremely wary o
     <td>ARM TrustZone + Bus Security</td>
     <td>ARMv7, ARMv8</td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>
+		Hardware extension dividing processor into two security worlds. Additional EL3 privilege level added, and SMC instruction to call into EL3 mode. Programmable EL3 firmware and Secure world OS used to create enclaves/TEEs. Vendors must implement bus security, <em>e.g.</em> a TrustZone Address Space Controller (TZASC).
+	</td>
+    <td>
+		Some research efforts have implemented remote attestation.
+	</td>
+    <td>
+		<ul>
+			<li>proprietary hardware stack</li>
+			<li>firmware, <em>e.g.</em> ARM Trusted Firmware</li>
+			<li>Secure world OS/hypervisor</li>
+		</ul>
+	</td>
     <td><i class="bi bi-check-lg"></i></td>
     <td><i class="bi bi-check-lg"></i></td>
     <td><i class="bi bi-check-lg"></i></td>
