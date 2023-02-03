@@ -26,7 +26,7 @@ Historically, the open source software community rightfully was extremely wary o
 </p>
 
 
-<h2 class="display-6">Primitives for Building Enclaves</h2>
+<h2 class="display-6">Known Primitives for Building Enclaves</h2>
 
 <div class="card" style="font-size:0.75rem;">
 <table class="table table-responsive" >
@@ -34,8 +34,8 @@ Historically, the open source software community rightfully was extremely wary o
   <tr>
     <th scope="col" style="width:25%;">Technology</th>
     <th scope="col">HW Arch</th>
-    <th scope="col">Resources</th>
-    <th scope="col">Key Mechanisms</th>
+    <th scope="col">Resources, Examples</th>
+    <th scope="col" style="width:25%;">Key Mechanisms</th>
     <th scope="col">Attestation Mechanism</th>
     <th scope="col">Trusted Computing Base (TCB)</th>
     <th scope="col">VM Enclave Support</th>
@@ -48,26 +48,49 @@ Historically, the open source software community rightfully was extremely wary o
   <tr>
     <td>Dedicated Processor Cores</td>
     <td>*</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>
+		<a href="https://arxiv.org/abs/1705.06932">Jailhouse</a>,
+		<a href="https://ieeexplore.ieee.org/abstract/document/6531076">SecureCore</a>
+	</td>
+    <td>Use dedicated cores or a coprocessor to isolate VMs or OSes. Use either nested paging or bus security to protect physical memory.</td>
+    <td>Implementation defined. Likely would require a trusted hypervisor and bootloader.</td>
+    <td>
+		<ul>
+			<li>proprietary hardware stack</li>
+			<li>hypervisor or firmware</li>
+		</ul>
+	</td>
     <td><i class="bi bi-check-lg"></i></td>
     <td><i class="bi bi-check-lg"></i></td>
     <td><i class="bi bi-check-lg"></i></td>
     <td><span class="badge text-bg-secondary">IMP</span></td>
   </tr>
   <tr>
-    <td>Virtualization + Trusted Boot (E.g. Intel TXT)</td>
+    <td>Virtualization + Trusted Boot</td>
     <td>*</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>
+		<a href="https://www.usenix.org/conference/usenixsecurity21/presentation/li-shih-wei">seKVM</a>,
+		<a href="https://source.android.com/docs/core/virtualization/architecture">pKVM</a>,
+		<a href="https://www.usenix.org/conference/osdi22/presentation/vant-hof">BlackBox</a>
+	</td>
+    <td>
+		Using a hardware root-of-trust, a trusted "lowvisor" is loaded and authenticated. This lowvisor provides isolation of VMs or applications from an untrusted host OS through nested paging.
+	</td>
+    <td>
+		After trusted boot, lowvisor should generate attestation reports, though current implementations don't have this feature.
+	</td>
+    <td>
+		<ul>
+			<li>hardware stack</li>
+			<li>bootloader ROM</li>
+			<li>(typically) early Linux boot stages</li>
+			<li>Lowvisor</li>
+		</ul>
+	</td>
     <td><i class="bi bi-check-lg"></i></td>
     <td><i class="bi bi-check-lg"></i></td>
-    <td><span class="badge text-bg-secondary">IMP</span></td>
-    <td><i class="bi bi-x-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
+    <td><i class="bi bi-question-lg"></i></td>
   </tr>
   <tr>
     <td><a href="https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html">Intel Software Guard Extensions (SGX)</a></td>
@@ -118,9 +141,13 @@ Historically, the open source software community rightfully was extremely wary o
     <td><span class="badge text-bg-primary">ME</span></td>
   </tr>
   <tr>
-    <td>AMD Secure Encrypted Virtualization (SEV), <br>SEV Encrypted State (SEV-ES), <br>SEV Secure Nested Paging (SEV-SNP)</td>
+    <td><a href="https://developer.amd.com/sev/">AMD Secure Encrypted Virtualization (SEV), SEV Encrypted State (SEV-ES), SEV Secure Nested Paging (SEV-SNP)</a></td>
     <td>x86</td>
-    <td></td>
+    <td>
+		<a href="https://dl.acm.org/doi/abs/10.1145/945445.945464">Terra</a>,
+		<a href="https://dl.acm.org/doi/abs/10.1145/1352592.1352625">Flicker</a>,
+		<a href="https://ieeexplore.ieee.org/abstract/document/5504713">TrustVisor</a>
+	</td>
     <td></td>
     <td></td>
     <td></td>
