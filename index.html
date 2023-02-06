@@ -166,7 +166,7 @@ Historically, the open source software community rightfully was extremely wary o
     <td><span class="badge text-bg-primary">ME</span></td>
   </tr>
   <tr>
-    <td>ARM TrustZone + Bus Security</td>
+    <td><a href="https://www.arm.com/technologies/trustzone-for-cortex-a">ARM TrustZone</a> + Bus Security</td>
     <td>ARMv7, ARMv8</td>
     <td>
 		<a href="https://dl.acm.org/doi/abs/10.1145/3291047">Pinto Survey</a>,
@@ -191,7 +191,7 @@ Historically, the open source software community rightfully was extremely wary o
     <td><span class="badge text-bg-secondary">IMP</span></td>
   </tr>
   <tr>
-    <td>ARM Confidential Compute Architecture (CCA)</td>
+    <td><a href="https://www.arm.com/architecture/security-features/arm-confidential-compute-architecture">ARM Confidential Compute Architecture (CCA)</a></td>
     <td>ARMv9</td>
     <td>
 		<a href="https://www.usenix.org/conference/osdi22/presentation/li">Li <em>et al.</em></a>
@@ -215,12 +215,25 @@ Historically, the open source software community rightfully was extremely wary o
     <td><span class="badge text-bg-secondary">IMP</span></td>
   </tr>
   <tr>
-    <td>Capability Hardware Enhanced<br>RISC Instructions (CHERI)</td>
-    <td>ARMv8</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><a href="https://www.cl.cam.ac.uk/research/security/ctsrd/cheri/">Capability Hardware Enhanced<br>RISC Instructions (CHERI)</a></td>
+    <td>*</td>
+    <td>
+		<a href="https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-941.pdf">Introduction to CHERI</a>,
+		<a href="https://github.com/project-oak/oak-enclave">Project Oak Enclave</a>
+	</td>
+    <td>
+		Generic ISA extension to add architectural capabilities. Memory accesses must be authorized using a capability held in a capability register file. Capabilities define the bounds a pointer may access and the permissions it may access. Valid pointers can only be derived from other pointers. A number of kernels and hypervisors have been derived from this technology.
+	</td>
+    <td>
+		No known mechanisms.
+	</td>
+    <td>
+		<ul>
+			<li>any proprietary hardware, some formal verification has been done on the CHERI spec.</li>
+			<li>compiler correctness for generating tight pointer bounds (least privilege)</li>
+			<li>correctness (outside of memory safety) of the hypervisor or OS</li>
+		</ul>
+	</td>
     <td><i class="bi bi-question-lg"></i></td>
     <td><i class="bi bi-question-lg"></i></td>
     <td><i class="bi bi-question-lg"></i></td>
