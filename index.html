@@ -15,6 +15,11 @@
 This repo gathers, categorizes, and compares knowledge on computation enclaves and trusted execution environments (TEEs). Note that different researchers and developers use the term "enclave" and "TEE" to mean similar things, I view this mostly as a difference of terminology for the purposes of this document.
 </p>
 
+<p>
+This is a living document, contributions are highly welcome. Please help me if I have missed anything by <a href="https://github.com/RichardHabeeb/EnclaveResearch">making a pull request</a>.
+</p>
+
+
 <h2 class="display-6">What are Enclaves?</h2>
 
 <p>
@@ -45,6 +50,9 @@ Historically, the open source software community rightfully was extremely wary o
   </tr>
 </thead>
 <tbody class="table-group-divider">
+<!-- ##########################################################################
+  DEDICATED PROCESSOR CORES
+########################################################################### -->
   <tr>
     <td>Dedicated Processor Cores</td>
     <td>*</td>
@@ -65,6 +73,10 @@ Historically, the open source software community rightfully was extremely wary o
     <td><i class="bi bi-check-lg"></i></td>
     <td><span class="badge text-bg-secondary">IMP</span></td>
   </tr>
+
+<!-- ##########################################################################
+  VIRTUALIZATION
+########################################################################### -->
   <tr>
     <td>Virtualization + Trusted Boot</td>
     <td>*</td>
@@ -92,6 +104,10 @@ Historically, the open source software community rightfully was extremely wary o
     <td><i class="bi bi-question-lg"></i></td>
     <td><i class="bi bi-question-lg"></i></td>
   </tr>
+
+<!-- ##########################################################################
+  INTEL SGX
+########################################################################### -->
   <tr>
     <td><a href="https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html">Intel Software Guard Extensions (SGX)</a></td>
     <td>x86</td>
@@ -140,6 +156,10 @@ Historically, the open source software community rightfully was extremely wary o
     <td><i class="bi bi-x-lg"></i></td>
     <td><span class="badge text-bg-primary">ME</span></td>
   </tr>
+
+<!-- ##########################################################################
+  AMD SEV
+########################################################################### -->
   <tr>
     <td><a href="https://developer.amd.com/sev/">AMD Secure Encrypted Virtualization (SEV), SEV Encrypted State (SEV-ES), SEV Secure Nested Paging (SEV-SNP)</a></td>
     <td>x86</td>
@@ -165,6 +185,10 @@ Historically, the open source software community rightfully was extremely wary o
     <td><i class="bi bi-x-lg"></i></td>
     <td><span class="badge text-bg-primary">ME</span></td>
   </tr>
+
+<!-- ##########################################################################
+  ARM TRUSTZONE
+########################################################################### -->
   <tr>
     <td><a href="https://www.arm.com/technologies/trustzone-for-cortex-a">ARM TrustZone</a> + Bus Security</td>
     <td>ARMv7, ARMv8</td>
@@ -190,6 +214,10 @@ Historically, the open source software community rightfully was extremely wary o
     <td><i class="bi bi-check-lg"></i></td>
     <td><span class="badge text-bg-secondary">IMP</span></td>
   </tr>
+
+<!-- ##########################################################################
+  ARM CCA
+########################################################################### -->
   <tr>
     <td><a href="https://www.arm.com/architecture/security-features/arm-confidential-compute-architecture">ARM Confidential Compute Architecture (CCA)</a></td>
     <td>ARMv9</td>
@@ -214,6 +242,10 @@ Historically, the open source software community rightfully was extremely wary o
     <td><i class="bi bi-question-lg"></i></td>
     <td><span class="badge text-bg-secondary">IMP</span></td>
   </tr>
+
+<!-- ##########################################################################
+  CHERI
+########################################################################### -->
   <tr>
     <td><a href="https://www.cl.cam.ac.uk/research/security/ctsrd/cheri/">Capability Hardware Enhanced<br>RISC Instructions (CHERI)</a></td>
     <td>*</td>
@@ -239,6 +271,10 @@ Historically, the open source software community rightfully was extremely wary o
     <td><i class="bi bi-question-lg"></i></td>
     <td><i class="bi bi-question-lg"></i></td>
   </tr>
+
+<!-- ##########################################################################
+  RISC-V MACHINE/PMP
+########################################################################### -->
   <tr>
     <td>RISC-V Machine Mode (M-Mode)</td>
     <td>RISC-V</td>
@@ -263,6 +299,10 @@ Historically, the open source software community rightfully was extremely wary o
     <td><i class="bi bi-question-lg"></i></td>
     <td><span class="badge text-bg-secondary">IMP</span></td>
   </tr>
+
+<!-- ##########################################################################
+  SOFTWARE ISOLATION
+########################################################################### -->
   <tr>
     <td>Pure Software Isolation</td>
     <td>*</td>
@@ -284,6 +324,10 @@ Historically, the open source software community rightfully was extremely wary o
     <td><i class="bi bi-question-lg"></i></td>
     <td><i class="bi bi-x-lg"></i></td>
   </tr>
+
+<!-- ##########################################################################
+  FULLY HOMOMORPHIC ENCRYPTION
+########################################################################### -->
   <tr>
     <td>Fully Homomorphic Encryption &amp; Verifiable Computation</td>
     <td>*</td>
@@ -305,6 +349,10 @@ Historically, the open source software community rightfully was extremely wary o
     <td><i class="bi bi-x-lg"></i></td>
     <td><span class="badge text-bg-primary">ME</span></td>
   </tr>
+
+<!-- ##########################################################################
+  CUSTOM PROCESSOR DESIGN
+########################################################################### -->
   <tr>
     <td>Custom Processor Design/FPGA</td>
     <td>*</td>
@@ -356,13 +404,96 @@ Historically, the open source software community rightfully was extremely wary o
 </table>
 </p>
 </div>
-
 </div>
 
 <p>
 </p>
 
 
+
+
+<h2 class="display-6">Enclave Technical Works</h2>
+
+<p>
+This table documents major technical contributions for enclave research in semi-chronological order. Incremental works by similar authors are grouped together as much as possible. C.I.A. in this table represent Confidentiality, Availability, and Integrity security properties respectively. RA indicates that remote attestation support is available, and P indicates that physical attacks like cold boot attacks and bus sniffing is protected against.
+</p>
+
+<div class="card" style="font-size:0.75rem;">
+<table class="table table-responsive" >
+<thead>
+	<tr>
+		<th scope="col">Year(s)</th>
+		<th scope="col">Work</th>
+		<th scope="col">Venue(s)</th>
+		<th scope="col">Domain</th>
+		<th scope="col">Target Enclave</th>
+		<th scope="col">Key Technical Idea(s)</th>
+		<th scope="col">C</th>
+		<th scope="col">I</th>
+		<th scope="col">A</th>
+		<th scope="col">RA</th>
+		<th scope="col">P</th>
+		<th scope="col">IO Support</th>
+		<th scope="col">Legacy</th>
+		<th scope="col">Multicore/SMP</th>
+	</tr>
+</thead>
+<tbody class="table-group-divider">
+	<tr>
+		<td>2003</td>
+		<td><a href="http://csg.csail.mit.edu/pubs/memos/Memo-474/Memo-474.pdf">AEGIS</a></td>
+		<td>ICS</td>
+		<td><span class="badge text-bg-primary">HW</span></td>
+		<td><span class="badge text-bg-dark">Process</span></td>
+		<td>Processor is extended to provide either memory integrity or memory encryption and integrity for enclave processes. Integrity is achieved through Merkle hash trees.</td>
+		<td><i class="bi bi-check-lg"></i></td>
+		<td><i class="bi bi-check-lg"></i></td>
+		<td><i class="bi bi-x-lg"></i></td>
+		<td><i class="bi bi-x-lg"></i></td>
+		<td><i class="bi bi-check-lg"></i></td>
+		<td><i class="bi bi-question-lg"></i></td>
+		<td><i class="bi bi-question-lg"></i></td>
+		<td><i class="bi bi-question-lg"></i></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">2003</td>
+		<td class="col_work"><a href="https://dl.acm.org/doi/abs/10.1145/945445.945464">Terra</a></td>
+		<td class="col_venue">SOSP</td>
+		<td class="col_domain"><span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"><span class="badge text-bg-dark">VM</span></td>
+		<td class="col_ideas">Uses a small trusted VMM to launch enclave VMs after a trusted boot.</td>
+		<td class="col_C"><i class="bi bi-check-lg"></i></td>
+		<td class="col_I"><i class="bi bi-check-lg"></i></td>
+		<td class="col_A"><i class="bi bi-x-lg"></i></td>
+		<td class="col_RA"><i class="bi bi-check-lg"></i></td>
+		<td class="col_P"><i class="bi bi-question-lg"></i></td>
+		<td class="col_IO"><i class="bi bi-question-lg"></i></td>
+		<td class="col_legacy">VMs</td>
+		<td class="col_SMP"><i class="bi bi-question-lg"></i></td>
+	</tr>
+<!--
+	<tr>
+		<td class="col_year"></td>
+		<td class="col_work"></td>
+		<td class="col_venue"></td>
+		<td class="col_domain"></td>
+		<td class="col_target"></td>
+		<td class="col_ideas"></td>
+		<td class="col_C"></td>
+		<td class="col_I"></td>
+		<td class="col_A"></td>
+		<td class="col_RA"></td>
+		<td class="col_P"></td>
+		<td class="col_IO"></td>
+		<td class="col_legacy"></td>
+		<td class="col_SMP"></td>
+	</tr>
+-->
+
+</tbody>
+</table>
+</div>
 
 
 </div>
