@@ -32,12 +32,12 @@ Historically, the open source software community rightfully was extremely wary o
 <table class="table table-responsive" >
 <thead>
   <tr>
-    <th scope="col" style="width:25%;">Technology</th>
+    <th scope="col" style="width:20%;">Technology</th>
     <th scope="col">HW Arch</th>
     <th scope="col">Resources, Examples</th>
-    <th scope="col" style="width:25%;">Key Mechanisms</th>
-    <th scope="col">Attestation Mechanism</th>
-    <th scope="col">Trusted Computing Base (TCB)</th>
+    <th scope="col" style="width:20%;">Key Mechanisms</th>
+    <th scope="col" style="width:10%;">Attestation Mechanism</th>
+    <th scope="col" style="width:20%;">Trusted Computing Base (TCB)</th>
     <th scope="col">VM Enclave Support</th>
     <th scope="col">Legacy App Support</th>
     <th scope="col">Availability Support</th>
@@ -173,7 +173,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<a href="https://developer.arm.com/documentation/PRD29-GENC-009492/c">ARM Whitepaper</a>
 	</td>
     <td>
-		Hardware extension dividing processor into two security worlds. Additional EL3 privilege level added, and SMC instruction to call into EL3 mode. Programmable EL3 firmware (a.k.a. the Secure Monitor) and Secure world OS used to create enclaves/TEEs. Vendors must implement bus security, <em>e.g.</em> a TrustZone Address Space Controller (TZASC).
+		Hardware extension dividing processor into two security worlds. Additional EL3 privilege level added, and SMC instruction to call into EL3 mode. Programmable EL3 firmware (a.k.a. the Secure Monitor) and Secure world OS used to create enclaves/TEEs. Vendors must implement bus security, <em>e.g.</em> a TrustZone Address Space Controller (TZASC). Secure world may use interrupts to preempt normal world, and many system use a real-time OS as the secure-world OS.
 	</td>
     <td>
 		Some research efforts have implemented remote attestation.
@@ -197,7 +197,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<a href="https://www.usenix.org/conference/osdi22/presentation/li">Li <em>et al.</em></a>
 	</td>
     <td>
-		Hardware extension building on ARM TrustZone. Processor is further divided to add world-like realms. Programmable EL3 Secure Monitor context switches between the Normal world, Secure world, and Realm world. Realm world has a programmable (and verified) EL2 Realm Management Monitor (RMM) hypervisor to switch between realms. MMU is extended to support a Granule Partition Table (GPT) to protect physical memory.
+		Hardware extension building on ARM TrustZone. Processor is further divided to add a Realm world. Programmable EL3 Secure Monitor context switches between the Normal world, Secure world, and Realm world. Realm world has a programmable (and verified) EL2 Realm Management Monitor (RMM) hypervisor to switch between realms. MMU is extended to support a Granule Partition Table (GPT) to protect physical memory.
 	</td>
     <td>
 		No CCA specific mechanisms available yet. Likely implementations will attest Realm VM enclaves using a chain of trust from the Secure Monitor to RMM.
@@ -240,12 +240,24 @@ Historically, the open source software community rightfully was extremely wary o
     <td><i class="bi bi-question-lg"></i></td>
   </tr>
   <tr>
-    <td>RISC-V Monitor Mode</td>
+    <td>RISC-V Machine Mode (M-Mode)</td>
     <td>RISC-V</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>
+		<a href="https://courses.cs.washington.edu/courses/cse481a/20sp/readings/riscv-priv.pdf">RISC-V ISA Manual</a>,
+		<a href="https://dl.acm.org/doi/abs/10.1145/3342195.3387532">Keystone</a>
+	</td>
+    <td>
+		RISC-V's physical memory protection (PMP) feature can create regions of isolated enclave memory. M-Mode can context switch between enclaves.
+	</td>
+    <td>
+		Some research efforts have implemented remote attestation.
+	</td>
+    <td>
+		<ul>
+			<li>hardware stack, potentially formally verified</li>
+			<li>M-Mode software</li>
+		</ul>
+	</td>
     <td><i class="bi bi-check-lg"></i></td>
     <td><i class="bi bi-question-lg"></i></td>
     <td><i class="bi bi-question-lg"></i></td>
@@ -254,22 +266,40 @@ Historically, the open source software community rightfully was extremely wary o
   <tr>
     <td>Pure Software Isolation</td>
     <td>*</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>
+		<a href="https://dl.acm.org/doi/abs/10.1145/2654822.2541986">Virtual Ghost</a>,
+		<a href="https://www.usenix.org/conference/osdi20/presentation/narayanan-vikram">RedLeaf</a>
+	</td>
+    <td>
+		Language-based isolation and software-fault isolation techniques, including control-flow integrity (CFI), type safety, proof-carrying code (PCC), typed assembly (TAL), or formal verification may be useful for creating enclaves and some of these techniques have been explored in the past.
+	</td>
+	<td>
+		No known mechanisms.
+	</td>
+    <td>
+		Project specific, but often the compiler is part of the TCB.
+	</td>
     <td><i class="bi bi-question-lg"></i></td>
     <td><i class="bi bi-check-lg"></i></td>
     <td><i class="bi bi-question-lg"></i></td>
     <td><i class="bi bi-x-lg"></i></td>
   </tr>
   <tr>
-    <td>Fully Homomorphic Encryption</td>
+    <td>Fully Homomorphic Encryption &amp; Verifiable Computation</td>
     <td>*</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>
+		<a href="https://eprint.iacr.org/2009/547.pdf">Non-Interactive Verifiable Computing</a>,
+		<a href="https://dl.acm.org/doi/abs/10.1145/2856449">Pinocchio</a>
+	</td>
+    <td>
+	Fully Homomorphic encryption schemes allow computation on encrypted data while the agent performing the computation has no knowledge of the instructions or data being performed. Naturally this provides a similar protection as hardware-based enclave schemes.
+	</td>
+    <td>
+		Attestation is not needed, rather, a probabilistically checkable proof (PCP) is generated which can check that the computation was correctly performed.
+	</td>
+    <td>
+		Likely a circuit-garbling compiler will be trusted.
+	</td>
     <td><i class="bi bi-question-lg"></i></td>
     <td><i class="bi bi-question-lg"></i></td>
     <td><i class="bi bi-x-lg"></i></td>
@@ -278,10 +308,20 @@ Historically, the open source software community rightfully was extremely wary o
   <tr>
     <td>Custom Processor Design/FPGA</td>
     <td>*</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>
+		<a href="http://csg.csail.mit.edu/pubs/memos/Memo-474/Memo-474.pdf">AEGIS</a>,
+		<a href="https://ieeexplore.ieee.org/document/5416657">Bastion</a>,
+		<a href="https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/costan">Sanctum</a>
+	</td>
+    <td>
+		Outside of industry-provided hardware primitives, some academic proposals have demonstrated major and minor changes to hardware architectures to support enclave-like security.
+	</td>
+    <td>
+		Implementation specific
+	</td>
+    <td>
+		Implementation specific
+	</td>
     <td><i class="bi bi-check-lg"></i></td>
     <td><i class="bi bi-question-lg"></i></td>
     <td><i class="bi bi-x-lg"></i></td>
@@ -306,7 +346,7 @@ Historically, the open source software community rightfully was extremely wary o
 		</tr>
 		<tr>
 			<td><span class="badge text-bg-secondary">IMP</span></td>
-			<td>Implementation defined Feature.</td>
+			<td>Implementation defined feature.</td>
 		</tr>
 		<tr>
 			<td><i class="bi bi-question-lg"></i></td>
