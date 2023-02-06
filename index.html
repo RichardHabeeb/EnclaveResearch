@@ -353,56 +353,55 @@ Historically, the open source software community rightfully was extremely wary o
 <!-- ##########################################################################
   CUSTOM PROCESSOR DESIGN
 ########################################################################### -->
-  <tr>
-    <td>Custom Processor Design/FPGA</td>
-    <td>*</td>
-    <td>
-		<a href="http://csg.csail.mit.edu/pubs/memos/Memo-474/Memo-474.pdf">AEGIS</a>,
-		<a href="https://ieeexplore.ieee.org/document/5416657">Bastion</a>,
-		<a href="https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/costan">Sanctum</a>
-	</td>
-    <td>
-		Outside of industry-provided hardware primitives, some academic proposals have demonstrated major and minor changes to hardware architectures to support enclave-like security.
-	</td>
-    <td>
-		Implementation specific
-	</td>
-    <td>
-		Implementation specific
-	</td>
-    <td><i class="bi bi-check-lg"></i></td>
-    <td><i class="bi bi-question-lg"></i></td>
-    <td><i class="bi bi-x-lg"></i></td>
-    <td><span class="badge text-bg-primary">ME</span></td>
-  </tr>
+	<tr>
+		<td>Custom Processor Design/FPGA</td>
+		<td>*</td>
+		<td>
+			<a href="http://csg.csail.mit.edu/pubs/memos/Memo-474/Memo-474.pdf">AEGIS</a>,
+			<a href="https://ieeexplore.ieee.org/document/5416657">Bastion</a>,
+			<a href="https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/costan">Sanctum</a>
+		</td>
+		<td>
+			Outside of industry-provided hardware primitives, some academic proposals have demonstrated major and minor changes to hardware architectures to support enclave-like security.
+		</td>
+		<td>
+			Implementation specific
+		</td>
+		<td>
+			Implementation specific
+		</td>
+		<td><i class="bi bi-check-lg"></i></td>
+		<td><i class="bi bi-question-lg"></i></td>
+		<td><i class="bi bi-x-lg"></i></td>
+		<td><span class="badge text-bg-primary">ME</span></td>
+	</tr>
 </tbody>
 </table>
 <div class="card-body">
-<p class="card-text">
-
-<table class="table table-borderless table-responsive">
-	<thead>
-	<tr>
-      <th>Key</th>
-      <th></th>
-    </tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><span class="badge text-bg-primary">ME</span></td>
-			<td>Memory encryption. Bus snooping may reveal access patterns unless ORAM is used.</td>
-		</tr>
-		<tr>
-			<td><span class="badge text-bg-secondary">IMP</span></td>
-			<td>Implementation defined feature.</td>
-		</tr>
-		<tr>
-			<td><i class="bi bi-question-lg"></i></td>
-			<td>Support is unclear or unresearched.</td>
-		</tr>
-	</tbody>
-</table>
-</p>
+	<p class="card-text">
+		<table class="table table-borderless table-responsive">
+			<thead>
+				<tr>
+					<th>Key</th>
+					<th></th>
+			    </tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><span class="badge text-bg-primary">ME</span></td>
+					<td>Memory encryption. Bus snooping may reveal access patterns unless ORAM is used.</td>
+				</tr>
+				<tr>
+					<td><span class="badge text-bg-secondary">IMP</span></td>
+					<td>Implementation defined feature.</td>
+				</tr>
+				<tr>
+					<td><i class="bi bi-question-lg"></i></td>
+					<td>Support is unclear or unresearched.</td>
+				</tr>
+			</tbody>
+		</table>
+	</p>
 </div>
 </div>
 
@@ -415,7 +414,7 @@ Historically, the open source software community rightfully was extremely wary o
 <h2 class="display-6">Enclave Technical Works</h2>
 
 <p>
-This table documents major technical contributions for enclave research in semi-chronological order. Incremental works by similar authors are grouped together as much as possible. C.I.A. in this table represent Confidentiality, Availability, and Integrity security properties respectively. RA indicates that remote attestation support is available, and P indicates that physical attacks like cold boot attacks and bus sniffing is protected against.
+	This table documents major technical contributions for enclave research in semi-chronological order. Incremental works by similar authors are grouped together as much as possible. C.I.A. in this table represent Confidentiality, Availability, and Integrity security properties respectively. RA indicates that remote attestation support is available, and P indicates that physical attacks like cold boot attacks and bus sniffing is protected against. MA stands for microarchitectural side channel attacks, like Spectre and Meltdown.
 </p>
 
 <div class="card" style="font-size:0.75rem;">
@@ -433,63 +432,81 @@ This table documents major technical contributions for enclave research in semi-
 		<th scope="col">A</th>
 		<th scope="col">RA</th>
 		<th scope="col">P</th>
+		<th scope="col">MA</th>
 		<th scope="col">IO Support</th>
 		<th scope="col">Legacy</th>
-		<th scope="col">Multicore/SMP</th>
 	</tr>
 </thead>
 <tbody class="table-group-divider">
 	<tr>
-		<td>2003</td>
-		<td><a href="http://csg.csail.mit.edu/pubs/memos/Memo-474/Memo-474.pdf">AEGIS</a></td>
-		<td>ICS</td>
-		<td><span class="badge text-bg-primary">HW</span></td>
-		<td><span class="badge text-bg-dark">Process</span></td>
-		<td>Processor is extended to provide either memory integrity or memory encryption and integrity for enclave processes. Integrity is achieved through Merkle hash trees.</td>
-		<td><i class="bi bi-check-lg"></i></td>
-		<td><i class="bi bi-check-lg"></i></td>
-		<td><i class="bi bi-x-lg"></i></td>
-		<td><i class="bi bi-x-lg"></i></td>
-		<td><i class="bi bi-check-lg"></i></td>
-		<td><i class="bi bi-question-lg"></i></td>
-		<td><i class="bi bi-question-lg"></i></td>
-		<td><i class="bi bi-question-lg"></i></td>
+		<td class="col_year">   2003</td>
+		<td class="col_work">   <a href="http://csg.csail.mit.edu/pubs/memos/Memo-474/Memo-474.pdf">AEGIS</a></td>
+		<td class="col_venue">  ICS</td>
+		<td class="col_domain"> <span class="badge text-bg-primary">HW</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Processor is extended to provide either memory integrity or memory encryption and integrity for enclave processes. Integrity is achieved through Merkle hash trees.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-question-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-question-lg"></i></td>
 	</tr>
 
 	<tr>
-		<td class="col_year">2003</td>
-		<td class="col_work"><a href="https://dl.acm.org/doi/abs/10.1145/945445.945464">Terra</a></td>
-		<td class="col_venue">SOSP</td>
-		<td class="col_domain"><span class="badge text-bg-success">Virt</span></td>
-		<td class="col_target"><span class="badge text-bg-dark">VM</span></td>
-		<td class="col_ideas">Uses a small trusted VMM to launch enclave VMs after a trusted boot.</td>
-		<td class="col_C"><i class="bi bi-check-lg"></i></td>
-		<td class="col_I"><i class="bi bi-check-lg"></i></td>
-		<td class="col_A"><i class="bi bi-x-lg"></i></td>
-		<td class="col_RA"><i class="bi bi-check-lg"></i></td>
-		<td class="col_P"><i class="bi bi-question-lg"></i></td>
-		<td class="col_IO"><i class="bi bi-question-lg"></i></td>
-		<td class="col_legacy">VMs</td>
-		<td class="col_SMP"><i class="bi bi-question-lg"></i></td>
+		<td class="col_year">   2003</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/945445.945464">Terra</a></td>
+		<td class="col_venue">  SOSP</td>
+		<td class="col_domain"> <span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">VM</span></td>
+		<td class="col_ideas">  Uses a small trusted VMM to launch enclave VMs after a trusted boot.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-question-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2008</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/10.1145/1346281.1346284">Overshadow</a></td>
+		<td class="col_venue">  ASPLOS</td>
+		<td class="col_domain"> <span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Implements new concept of cloaking and multi-shadowing where each page of an enclave has an encrypted and unencrypted copy. The encrypted view is given to the untrusted kernel, and the unencrypted view is given to the user. Writes from kernel to encrypted page trigger decryption, and writes from enclave to plaintext trigger encryption.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-question-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-question-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
 	</tr>
 <!--
 	<tr>
-		<td class="col_year"></td>
-		<td class="col_work"></td>
-		<td class="col_venue"></td>
-		<td class="col_domain"></td>
-		<td class="col_target"></td>
-		<td class="col_ideas"></td>
-		<td class="col_C"></td>
-		<td class="col_I"></td>
-		<td class="col_A"></td>
-		<td class="col_RA"></td>
-		<td class="col_P"></td>
-		<td class="col_IO"></td>
-		<td class="col_legacy"></td>
-		<td class="col_SMP"></td>
+		<td class="col_year">   </td>
+		<td class="col_work">   </td>
+		<td class="col_venue">  </td>
+		<td class="col_domain"> </td>
+		<td class="col_target"> </td>
+		<td class="col_ideas">  </td>
+		<td class="col_C">      </td>
+		<td class="col_I">      </td>
+		<td class="col_A">      </td>
+		<td class="col_RA">     </td>
+		<td class="col_P">      </td>
+		<td class="col_MA">    </td>
+		<td class="col_IO">     </td>
+		<td class="col_legacy"> </td>
 	</tr>
--->
+!-->
+
 
 </tbody>
 </table>
