@@ -493,7 +493,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_year">   2009</td>
 		<td class="col_work">   <a href="https://dl.acm.org/doi/10.1145/1456455.1456460">Mobile Trusted Modules</a></td>
 		<td class="col_venue">  CCSW/STC</td>
-		<td class="col_domain"> <span class="badge text-bg-warning">TrustZone</span></td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
 		<td class="col_ideas">  Presents essential techniques for using the TrustZone to run a secure and non-secure Linux instance, interrupt sharing, secure boot. Concept of a TrustZone-Assisted hypervisor is presented where the secure world and Monitor/EL3 mode is used as a hypervisor for the normal world.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
@@ -512,7 +512,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_venue">  EuroSys</td>
 		<td class="col_domain"> <span class="badge text-bg-success">Virt</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
-		<td class="col_ideas">  Uses AMD SEV or Intel TXT to execute a piece of app logic instead of a VM. Sets up a small execution environment for the application.</td>
+		<td class="col_ideas">  Uses AMD SEV or Intel TXT to execute a piece of app logic instead of a VM. On SKINIT/SENTER instruction, a loader saves the state of the OS, sets up a small execution environment for the application and jumps to ring 3. A TPM platform control register is updated up on completion to contain the attestation quote.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
@@ -523,6 +523,74 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
 
+	<tr>
+		<td class="col_year">   2010</td>
+		<td class="col_work">   <a href="https://ieeexplore.ieee.org/document/5416657">Bastion</a></td>
+		<td class="col_venue">  HPCA</td>
+		<td class="col_domain"> <span class="badge text-bg-primary">HW</span>&nbsp;<span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
+		<td class="col_ideas">  Hardware extensions supporting memory encryption and cache/register changes to track enclave memory. A new hypervisor is used to provide hypercalls which launch a small enclave segment/module process. Seems similar to AMD SEV + Flicker.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2010</td>
+		<td class="col_work">   <a href="https://ieeexplore.ieee.org/abstract/document/5504713">TrustVisor</a></td>
+		<td class="col_venue">  IEEE S&amp;P</td>
+		<td class="col_domain"> <span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
+		<td class="col_ideas">  Improves on Flicker by providing TMP services in software and only using hardware TPM functions when necessary. Removing the need to interact with a hardware TPM for basic enclave operations leads to a great performance improvement.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2010-2013</td>
+		<td class="col_work">   <a href="https://www.toppers.jp/en/safeg.html">SafeG</a></td>
+		<td class="col_venue">  OSPERT, SWEST13, TRUST</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span>&nbsp;<span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Uses the ARM TrustZone to run a real-time OS. Interrupts are divided so the Secure world can preempt and schedule the normal world. Physical memory and devices are divided and isolated using TZASC. Real-time scheduler is aware of normal world scheduler and visa versa, they can collaborate to integrate scheduling.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <span class="badge text-bg-warning">Divided</span></td>
+		<td class="col_legacy"> <span class="badge text-bg-warning">RT</span></td>
+	</tr>
+
+
+	<tr>
+		<td class="col_year">   2013</td>
+		<td class="col_work">   SecureCore</td>
+		<td class="col_venue">  RTAS</td>
+		<td class="col_domain"> <span class="badge text-bg-success">Virt</span>&nbsp;<span class="badge text-bg-info">Multicore</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Runs a safety critical application on a dedicated core with it's own OS to provide availability for safety-critical processes. Uses nested paging and a custom hypervisor to provide memory and device isolation and communication.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <span class="badge text-bg-warning">Divided</span></td>
+		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
+	</tr>
 
 <!--
 	<tr>
