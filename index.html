@@ -577,7 +577,7 @@ Historically, the open source software community rightfully was extremely wary o
 
 	<tr>
 		<td class="col_year">   2013</td>
-		<td class="col_work">   SecureCore</td>
+		<td class="col_work">   <a href="https://ieeexplore.ieee.org/abstract/document/6531076">SecureCore</a></td>
 		<td class="col_venue">  RTAS</td>
 		<td class="col_domain"> <span class="badge text-bg-success">Virt</span>&nbsp;<span class="badge text-bg-info">Multicore</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
@@ -592,6 +592,56 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
 	</tr>
 
+	<tr>
+		<td class="col_year">   2013</td>
+		<td class="col_work">   <a href="https://ieeexplore.ieee.org/abstract/document/6799789">SASP</a></td>
+		<td class="col_venue">  ICCVE</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span>&nbsp;<span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Designs support for shared devices using paravirtualization concepts applied to a TrustZone-assisted hypervisor.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <span class="badge text-bg-warning">Para</span></td>
+		<td class="col_legacy"> <span class="badge text-bg-warning">RT</span></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2013</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/2451116.2451146">InkTag</a></td>
+		<td class="col_venue">  ASPLOS</td>
+		<td class="col_domain"> <span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Supports semi-unmodified Linux applications as enclaves with a subset of system call functionality. The InkTag hypervisor owns the real page tables for an enclave, and checks the OS's changes to its copies. The OS is allowed to change the page tables if it can produce a token which the enclave provided to it. This aims to capture the intent of the enclave to give access control to the page tables and prevent Iago attacks.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <span class="badge text-bg-info">Semi</span></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2014</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/2654822.2541986">Virtual Ghost</a></td>
+		<td class="col_venue">  ASPLOS</td>
+		<td class="col_domain"> <span class="badge" style="background-color: var(--bs-purple);">Software</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  The entire FreeBSD kernel is recompiled with a modified LLVM compiler which prevents binary code injection and ROP attacks by enforcing control-flow integrity (following up on previous work on "Secure Virtual Architecutures"). This software isolation instrumentation is then used to implement ghost memory, which the OS cannot read or write, this is used to implement enclaves. The OS effectively needs to be ported to a new architecture to support the new compiler's handling of low-level state manipulation.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
+	</tr>
 <!--
 	<tr>
 		<td class="col_year">   </td>
