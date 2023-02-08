@@ -24,8 +24,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   Listing of Enclave/TEE Research for Untrusted Privileged Software and Hardware
 baseurl: "/EnclaveResearch" # the subpath of your site, e.g. /blog
 url: "https://richardhabeeb.github.io"
-twitter_username: 0xdeadbeeb
-github_username:  richardhabeeb
+twitter_username: "0xdeadbeeb"
+github_username: "richardhabeeb"
 
 # Build settings
 theme: minima
