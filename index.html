@@ -872,7 +872,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_year">   2019</td>
 		<td class="col_work">   <a href="https://www.usenix.org/conference/usenixsecurity19/presentation/li-shih-wei">HypSec</a></td>
 		<td class="col_venue">  Usenix Security</td>
-		<td class="col_domain"> <span class="badge text-bg-primary">Virt</span></td>
+		<td class="col_domain"> <span class="badge text-bg-success">Virt</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">VM</span></td>
 		<td class="col_ideas">  Splits the KVM hypervisor into two parts: a lowvisor and highvisor. Highvisor is deprivileged and run like a VM with nested paging. Lowvisor provides an API for interacting with creating and guests. Highvisor performs device emulation but doesn't have access to guess memory.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
@@ -889,7 +889,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_year">   2019</td>
 		<td class="col_work">   <a href="https://www.ndss-symposium.org/ndss-paper/ginseng-keeping-secrets-in-registers-when-you-distrust-the-operating-system/">Ginseng</a></td>
 		<td class="col_venue">  NDSS</td>
-		<td class="col_domain"> <span class="badge" style="background-color: var(--bs-purple);">Software</span><span class="badge text-bg-primary">Virt</span></td>
+		<td class="col_domain"> <span class="badge" style="background-color: var(--bs-purple);">Software</span><span class="badge text-bg-success">Virt</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
 		<td class="col_ideas">  C/C++ language and compiler are extended to be able to mark variables and functions as sensitive. Compiler propagates sensitive tag, disallows sensitive registers to state spill onto the stack. When state must be saved, compiler adds SMC or HVC calls to invoke a service to encrypt and save the variables onto a secure stack. OS's ability to control page tables removed and an API is provided to support/check page table updates. While secrets are in play/in registers, all exceptions route to EL3 by updating the EL1 vector tables.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
@@ -954,6 +954,22 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
 
+	<tr>
+		<td class="col_year">   2022</td>
+		<td class="col_work">   <a href="https://www.usenix.org/conference/osdi22/presentation/vant-hof">BlackBox</a></td>
+		<td class="col_venue">  OSDI</td>
+		<td class="col_domain"> <span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Container</span></td>
+		<td class="col_ideas">  Similar to Flicker and TrustVisor, uses nested paging to isolate container enclaves. Container Security Monitor (CSM) at EL2 provides interface for OS to create container enclaves and manage page tables. All exceptions and interrupts pass through CSM by forcing the EL1 vector tables to jump to CSM. Supports unmodified applications by forwarding system calls and requiring collaboration between OS and CSM.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-question-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
+	</tr>
 
 
 <!--
