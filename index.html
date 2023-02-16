@@ -874,7 +874,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_venue">  Usenix Security</td>
 		<td class="col_domain"> <span class="badge text-bg-primary">Virt</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">VM</span></td>
-		<td class="col_ideas">  Split the KVM hypervisor into two parts: a lowvisor and highvisor. Highvisor is deprivileged and run like a VM with nested paging. Lowvisor provides an API for interacting with creating and guests. Highvisor performs device emulation but doesn't have access to guess memory.</td>
+		<td class="col_ideas">  Splits the KVM hypervisor into two parts: a lowvisor and highvisor. Highvisor is deprivileged and run like a VM with nested paging. Lowvisor provides an API for interacting with creating and guests. Highvisor performs device emulation but doesn't have access to guess memory.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
@@ -884,6 +884,76 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_IO">     <i class="bi bi-check-lg"></i></td>
 		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
 	</tr>
+
+	<tr>
+		<td class="col_year">   2019</td>
+		<td class="col_work">   <a href="https://www.ndss-symposium.org/ndss-paper/ginseng-keeping-secrets-in-registers-when-you-distrust-the-operating-system/">Ginseng</a></td>
+		<td class="col_venue">  NDSS</td>
+		<td class="col_domain"> <span class="badge" style="background-color: var(--bs-purple);">Software</span><span class="badge text-bg-primary">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
+		<td class="col_ideas">  C/C++ language and compiler are extended to be able to mark variables and functions as sensitive. Compiler propagates sensitive tag, disallows sensitive registers to state spill onto the stack. When state must be saved, compiler adds SMC or HVC calls to invoke a service to encrypt and save the variables onto a secure stack. OS's ability to control page tables removed and an API is provided to support/check page table updates. While secrets are in play/in registers, all exceptions route to EL3 by updating the EL1 vector tables.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_MA">     <span class="badge text-bg-info">Reg</span></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2020</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/3342195.3387532">Keystone</a></td>
+		<td class="col_venue">  EuroSys</td>
+		<td class="col_domain"> <span class="badge" style="background-color: var(--bs-orange);">RISC-V</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Demonstrates how to use RISC-V's machine mode and phyiscal memory protection (PMP) system to create enclaves.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <span class="badge text-bg-primary">ME</span></td>
+		<td class="col_MA">     <span class="badge text-bg-success">PC</span></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+
+	<tr>
+		<td class="col_year">   2021</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/3477132.3483554">TwinVisor</a></td>
+		<td class="col_venue">  SOSP</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">VM</span></td>
+		<td class="col_ideas">  Runs a TrustZone Secure world VM via S-EL2. Secure world hypervisor lets EL1 manage page tables, and checks and syncs them with secure world. Develops a cooperative dynamic memory split.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2022</td>
+		<td class="col_work">   <a href="https://ieeexplore.ieee.org/abstract/document/9833604">RT-TEE</a></td>
+		<td class="col_venue">  IEEE S&amp;P</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Supports sharing devices between worlds using by replacing Normal world writes to their MMIO region with SMC calls. Policy of device usage is enforced by pattern matching the device access against a set of known access patterns. Implements availability in a similar way as SafeG and LTZVisor.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">    <span class="badge text-bg-info">Sharing</span> </td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
 
 
 <!--
