@@ -798,6 +798,93 @@ Historically, the open source software community rightfully was extremely wary o
 	</tr>
 
 
+	<tr>
+		<td class="col_year">   2017</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/3081333.3081349">TrustShadow</a></td>
+		<td class="col_venue">  MobiSys</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Runs unmodified Linux applications in the secure world. System calls are forwarded by replaying the call in the vector table. Arguments are copied to the Normal world. Page tables are mostly managed by the secure world, table updates are communicated from Normal to Secure.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2017</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/3132747.3132782">Komodo</a></td>
+		<td class="col_venue">  SOSP</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
+		<td class="col_ideas">  Implements a formally verified (using Dafny) SGX-like enclave interface using the ARM TrustZone.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+
+	<tr>
+		<td class="col_year">   2018</td>
+		<td class="col_work">   <a href="">RT-Trust</a></td>
+		<td class="col_venue">  GPCE</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
+		<td class="col_ideas">  Presents an automated way of splitting an real-time application into an enclave and non-enclave segments for TrustZone execution.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <span class="badge text-bg-info">Refactored</span></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2019</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/10.1145/3319535.3363205">SecTEE</a></td>
+		<td class="col_venue">  CCS</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
+		<td class="col_ideas">  Implements an TrustZone enclave architecture which is resistant to side channel attacks and has a remote attestation scheme. Decrypts pages before they go off the SoC to protect against some physical attacks. </td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <span class="badge text-bg-primary">ME</span></td>
+		<td class="col_MA">     <span class="badge text-bg-success">PC</span></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+
+	<tr>
+		<td class="col_year">   2019</td>
+		<td class="col_work">   <a href="https://www.usenix.org/conference/usenixsecurity19/presentation/li-shih-wei">HypSec</a></td>
+		<td class="col_venue">  Usenix Security</td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">VM</span></td>
+		<td class="col_ideas">  Split the KVM hypervisor into two parts: a lowvisor and highvisor. Highvisor is deprivileged and run like a VM with nested paging. Lowvisor provides an API for interacting with creating and guests. Highvisor performs device emulation but doesn't have access to guess memory.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
+	</tr>
+
 
 <!--
 	<tr>
@@ -807,14 +894,14 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_domain"> </td>
 		<td class="col_target"> <span class="badge text-bg-dark"></span></td>
 		<td class="col_ideas">  </td>
-		<td class="col_C">      </td>
-		<td class="col_I">      </td>
-		<td class="col_A">      </td>
-		<td class="col_RA">     </td>
-		<td class="col_P">      </td>
-		<td class="col_MA">     </td>
-		<td class="col_IO">     </td>
-		<td class="col_legacy"> </td>
+		<td class="col_C">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
 !-->
 
