@@ -680,7 +680,7 @@ Historically, the open source software community rightfully was extremely wary o
 	<tr>
 		<td class="col_year">   2016</td>
 		<td class="col_work">   <a href="https://www.usenix.org/conference/osdi16/technical-sessions/presentation/arnautov">SCONE</a></td>
-		<td class="col_venue">  </td>
+		<td class="col_venue">  OSDI</td>
 		<td class="col_domain"> <span class="badge" style="background-color: var(--bs-pink);">SGX</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Container</span></td>
 		<td class="col_ideas">  Run unmodified Linux applications in a container in SGX. A way of performing system calls asynchronously is presented.</td>
@@ -694,14 +694,118 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <span class="badge text-bg-warning">Recompile</span></td>
 	</tr>
 
+	<tr>
+		<td class="col_year">   2016</td>
+		<td class="col_work">   <a href="https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/costan">Sanctum</a></td>
+		<td class="col_venue">  Usenix Security</td>
+		<td class="col_domain"> <span class="badge text-bg-primary">HW</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
+		<td class="col_ideas">  An architecture for running enclaves with minimally invasive hardware changes. Provides a transparent implementation on RISC-V. Addresses previous cache side channel attacks in SGX by using a page coloring scheme to partition the cache.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <span class="badge text-bg-primary">ME</span></td>
+		<td class="col_MA">     <span class="badge text-bg-success">PC</span></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2016</td>
+		<td class="col_work">   <a href="https://ieeexplore.ieee.org/document/7546496">CaSE</a></td>
+		<td class="col_venue">  IEEE S&amp;P</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Supports running TrustZone applications purely in the cache and encrypting their data before being written to memory. NS flag is used to divide the cache and provide isolation on chip. Cache lines are loaded then locked into place, code cache lines must be clear to PoU (usually the LLC).</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <span class="badge text-bg-primary">ME</span></td>
+		<td class="col_MA">     <i class="bi bi-question-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2016</td>
+		<td class="col_work">   <a href="https://www.usenix.org/conference/atc16/technical-sessions/presentation/cho">OSP Hypervisor</a></td>
+		<td class="col_venue">  Usenix ATC</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span><span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Limits privilege escalation potential for enclaves by running them in the Normal world. While the Normal world is executing, TZASC protects enclave memory and single-level paging is used. While enclave is executing nested paging protects Normal and Secure world OSes. </td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2017</td>
+		<td class="col_work">   <a href="https://drops.dagstuhl.de/opus/volltexte/2017/7153/">LTZVisor</a>, <a href="https://ieeexplore.ieee.org/abstract/document/8216603">LTZVisor-AMP</a></td>
+		<td class="col_venue">  ECRTS, IECON</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">VM</span></td>
+		<td class="col_ideas">  Similar TZ-Assisted Hypervisor architecture to SafeG. Improves by implementing VirtIO like interface and supporting a multicore ARMv8 platform.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <span class="badge text-bg-warning">Divided</span></td>
+		<td class="col_legacy"> <span class="badge text-bg-warning">RT</span></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2017</td>
+		<td class="col_work">   <a href="https://www.mdpi.com/2079-9292/6/4/93">μRTZVisor</a></td>
+		<td class="col_venue">  Electronics</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">VM</span></td>
+		<td class="col_ideas">  A design for a TZ-Assisted Hypervisor which is able to run multiple guest OSes. The TZASC is leveraged to isolate the currently running OS in the Normal World from the other OSes which are partitioned into the Secure World. Upon VM switch, the TZASC is configured to partition the memory so a different OS is in the Normal world. The cache and TLB must be completely flushed on switch. Secure devices are managed by EL3.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <span class="badge text-bg-warning">Divided</span></td>
+		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
+	</tr>
+
+
+	<tr>
+		<td class="col_year">   2017</td>
+		<td class="col_work">   <a href="">Graphene-SGX</a></td>
+		<td class="col_venue">  Usenix ATC</td>
+		<td class="col_domain"> <span class="badge" style="background-color: var(--bs-pink);">SGX</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process Group</span></td>
+		<td class="col_ideas">  Implements a library OS for Unmodified SGX applications. Achieves better performance than many other SGX designs showing feasibility of Library OS implementations.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <span class="badge text-bg-primary">ME</span></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <span class="badge text-bg-info">Partial</span></td>
+	</tr>
+
+
 
 <!--
 	<tr>
 		<td class="col_year">   </td>
-		<td class="col_work">   </td>
+		<td class="col_work">   <a href=""></a></td>
 		<td class="col_venue">  </td>
 		<td class="col_domain"> </td>
-		<td class="col_target"> </td>
+		<td class="col_target"> <span class="badge text-bg-dark"></span></td>
 		<td class="col_ideas">  </td>
 		<td class="col_C">      </td>
 		<td class="col_I">      </td>
