@@ -473,6 +473,23 @@ Historically, the open source software community rightfully was extremely wary o
 	</tr>
 
 	<tr>
+		<td class="col_year">   2006</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/1217935.1217951">Nizza</a></td>
+		<td class="col_venue">  EuroSys</td>
+		<td class="col_domain"> <span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Paravirtualizes L4Linux as a L4 process. Runs security sensitive applications (enclaves) as L4 tasks.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+	<tr>
 		<td class="col_year">   2008</td>
 		<td class="col_work">   <a href="https://dl.acm.org/doi/10.1145/1346281.1346284">Overshadow</a></td>
 		<td class="col_venue">  ASPLOS</td>
@@ -642,6 +659,23 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
 	</tr>
+	
+	<tr>
+		<td class="col_year">   2014</td>
+		<td class="col_work">   <a href="https://www.usenix.org/conference/atc14/technical-sessions/presentation/li_yanlin">MiniBox</a></td>
+		<td class="col_venue">  Usenix ATC</td>
+		<td class="col_domain"> <span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Extends TrustVisor to support the execution of more rich applications (including legacy applications like OpenSSL) using Google's Native Client (NaCl).</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <span class="badge text-bg-info">Ported</span></td>
+	</tr>
 
 	<tr>
 		<td class="col_year">   2014</td>
@@ -658,6 +692,23 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_legacy"> <span class="badge text-bg-info">Partial</span></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2015</td>
+		<td class="col_work">   <a href="https://www.ndss-symposium.org/ndss2015/ndss-2015-programme/secret-secure-channel-between-rich-execution-environment-and-trusted-execution-environment/">SeCReT</a></td>
+		<td class="col_venue">  NDSS</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span><span class="badge" style="background-color: var(--bs-purple);">Software</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
+		<td class="col_ideas">  Shows how a Linux process can do computation with a secret key that linux cannot read. When process tries to read the key it traps into EL3, which checks the integrity of the user process's CFG, the Link Register, and the integrity of the Linux vector trampolines, etc. If safe the key is loaded into the user process, and all traps are routed to EL3. Upon a second trap the key is scrubbed from the cache and memory.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
 
 	<tr>
@@ -971,6 +1022,22 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
 	</tr>
 
+	<tr>
+		<td class="col_year">   2022</td>
+		<td class="col_work">   <a href="https://www.usenix.org/conference/atc22/presentation/jia-yuekai">HyperEnclave</a></td>
+		<td class="col_venue">  Usenix ATC</td>
+		<td class="col_domain"> <span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
+		<td class="col_ideas">  Runs (mostly) unmodified SGX applications using a hypervisor with nested paging.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <span class="badge text-bg-primary">ME</span></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
+	</tr>
 
 <!--
 	<tr>
