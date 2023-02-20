@@ -608,6 +608,24 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <span class="badge text-bg-warning">RT</span></td>
 	</tr>
 
+	<tr>
+		<td class="col_year">   2011</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/2043556.2043576">CloudVisor</a></td>
+		<td class="col_venue">  SOSP</td>
+		<td class="col_domain"> <span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">VM</span></td>
+		<td class="col_ideas">  Deprivileges the Xen VMM into a guest VM, and runs Cloudvisor in host mode. Guests are run using nested virtualization; their page tables are stored in the VMM guest's address space, but in read-only mode. CloudVisor tracks page ownership and unmaps guest pages from the VMM. Cloudvisor interposes on VMEnter, VMExit and VMRead/VMWrite instructions as well as IOMMU faults. Disk IO is encrypted transparently. Some state is leaked to Xen to support IO.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <span class="badge text-bg-warning">Partial</span></td>
+		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
+	</tr>
+
+
 
 	<tr>
 		<td class="col_year">   2013</td>
@@ -615,7 +633,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_venue">  RTAS</td>
 		<td class="col_domain"> <span class="badge text-bg-success">Virt</span>&nbsp;<span class="badge text-bg-info">Multicore</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
-		<td class="col_ideas">  Runs a safety critical application on a dedicated core with it's own OS to provide availability for safety-critical processes. Uses nested paging and a custom hypervisor to provide memory and device isolation and communication.</td>
+		<td class="col_ideas">  Runs a safety critical application on a dedicated core with it's own OS to provide availability for safety-critical processes. Uses nested paging and a custom hypervisor to provide memory and device isolation and communication. </td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_A">      <i class="bi bi-check-lg"></i></td>
@@ -942,7 +960,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_venue">  Usenix Security</td>
 		<td class="col_domain"> <span class="badge text-bg-success">Virt</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">VM</span></td>
-		<td class="col_ideas">  Splits the KVM hypervisor into two parts: a lowvisor and highvisor. Highvisor is deprivileged and run like a VM with nested paging. Lowvisor provides an API for interacting with creating and guests. Highvisor performs device emulation but doesn't have access to guess memory.</td>
+		<td class="col_ideas">  Similar to Cloudvisor, this paper splits the KVM hypervisor into two parts: a lowvisor and highvisor. Highvisor is deprivileged and run like a VM with nested paging. Lowvisor provides an API for interacting with creating and guests. Avoids CloudVisor's nested virtualization by introducing shadow nested page tables for the guest VMs, which are managed by the highvisor and shadowed by the lowvisor. Highvisor performs device emulation and IO paravirtualization. </td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
