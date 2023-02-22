@@ -508,11 +508,11 @@ Historically, the open source software community rightfully was extremely wary o
 
 	<tr>
 		<td class="col_year">   2008</td>
-		<td class="col_work">   <a href="https://dl.acm.org/doi/10.1145/1346281.1346284">Overshadow</a></td>
-		<td class="col_venue">  ASPLOS</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/10.1145/1346281.1346284">Overshadow</a>, <a href="https://dl.acm.org/doi/10.5555/1496671.1496672">(follow up)</a></td>
+		<td class="col_venue">  ASPLOS, HotSec</td>
 		<td class="col_domain"> <span class="badge text-bg-success">Virt</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
-		<td class="col_ideas">  Implements new concept of cloaking and multi-shadowing where each page of an enclave has an encrypted and unencrypted copy. The encrypted view is given to the untrusted kernel, and the unencrypted view is given to the user. Writes from kernel to encrypted page trigger decryption, and writes from enclave to plaintext trigger encryption.</td>
+		<td class="col_ideas">  Implements new concept of cloaking and multi-shadowing where each page of an enclave has an encrypted and unencrypted copy. The encrypted view is given to the untrusted kernel, and the unencrypted view is given to the user. Writes from kernel to encrypted page trigger decryption, and writes from enclave to plaintext trigger encryption. Provides a shim for communicating with the trusted VMM from the enclave, and handles many system calls. Follow up work discusses many of the problems with needing to trust the OS for system calls, and possible solutions.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
