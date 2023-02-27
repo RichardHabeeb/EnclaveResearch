@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Enclave Research</title>
@@ -1019,6 +1019,23 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
 		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2017</td>
+		<td class="col_work">   <a href="https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/hua">vTZ</a></td>
+		<td class="col_venue">  Usenix Security</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span><span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Supports virtualization of the ARM TrustZone and constrained enclave behaviors for better overall security. Ensures that the Normal-world Hypervisor cannot modify its own page tables by replacing all translation and exception configuring MRS/MSR instructions in its code and making the page tables and code sections and vector tables read only. The Secure world updates the page tables on behalf of the hypervisor. A region of Normal-world memory is then protected for use of creating virtualized enclaves. All exceptions are routed through the secure world by injecting SMCs into the vector table; this is done to support switching to and from enclaves (in addition to also replacing ERETs with SMCs). Enclaves must run to completion and interrupts are disabled during their execution, preventing them from DoSing the normal world.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
 		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
