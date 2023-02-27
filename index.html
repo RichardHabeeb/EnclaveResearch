@@ -442,7 +442,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_year">   2003</td>
 		<td class="col_work">   <a href="http://csg.csail.mit.edu/pubs/memos/Memo-474/Memo-474.pdf">AEGIS</a></td>
 		<td class="col_venue">  ICS</td>
-		<td class="col_domain"> <span class="badge text-bg-primary">HW</span></td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
 		<td class="col_ideas">  Processor is extended to provide either memory integrity or memory encryption and integrity for enclave processes. Integrity is achieved through Merkle hash trees.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
@@ -596,7 +596,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_year">   2010</td>
 		<td class="col_work">   <a href="https://ieeexplore.ieee.org/document/5416657">Bastion</a></td>
 		<td class="col_venue">  HPCA</td>
-		<td class="col_domain"> <span class="badge text-bg-primary">HW</span>&nbsp;<span class="badge text-bg-success">Virt</span></td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span>&nbsp;<span class="badge text-bg-success">Virt</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
 		<td class="col_ideas">  Hardware extensions supporting memory encryption and cache/register changes to track enclave memory. A new hypervisor is used to provide hypercalls which launch a small enclave segment/module process. Seems similar to AMD SEV + Flicker.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
@@ -749,6 +749,24 @@ Historically, the open source software community rightfully was extremely wary o
 
 	<tr>
 		<td class="col_year">   2014</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/2592798.2592824">TrustLite</a></td>
+		<td class="col_venue">  EuroSys</td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Hardware is proposed for small embedded devices without virtualization to extent the memory protection unit's (MPU) protection  to include a column for code location. On a memory access, the table is indexed using the IP into the code column to determine whether the target address is accessible. Additional hardware is also needed to save register state of enclaves so leakage doesn't occur on interrupts.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <span class="badge text-bg-warning">Divided</span></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+
+	<tr>
+		<td class="col_year">   2014</td>
 		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/2541940.2541949">Trusted Language Runtime (TLR)</a></td>
 		<td class="col_venue">  ASPLOS</td>
 		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span></td>
@@ -763,6 +781,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_legacy"> <span class="badge text-bg-info">Partial</span></td>
 	</tr>
+
 
 	<tr>
 		<td class="col_year">   2015</td>
@@ -837,7 +856,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_year">   2016</td>
 		<td class="col_work">   <a href="https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/costan">Sanctum</a></td>
 		<td class="col_venue">  Usenix Security</td>
-		<td class="col_domain"> <span class="badge text-bg-primary">HW</span></td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
 		<td class="col_ideas">  An architecture for running enclaves with minimally invasive hardware changes. Provides a transparent implementation on RISC-V. Addresses previous cache side channel attacks in SGX by using a page coloring scheme to partition the cache.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
@@ -867,18 +886,37 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
 
+
+
 	<tr>
 		<td class="col_year">   2016</td>
 		<td class="col_work">   <a href="https://www.usenix.org/conference/atc16/technical-sessions/presentation/cho">OSP Hypervisor</a></td>
 		<td class="col_venue">  Usenix ATC</td>
 		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span><span class="badge text-bg-success">Virt</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
-		<td class="col_ideas">  Limits privilege escalation potential for enclaves by running them in the Normal world. While the Normal world is executing, TZASC protects enclave memory and single-level paging is used. While enclave is executing nested paging protects Normal and Secure world OSes. </td>
+		<td class="col_ideas">  Limits privilege escalation potential for enclaves by running them in the Normal world. While the Normal world is executing, TZASC protects enclave memory and single-level paging is used. While enclave is executing nested paging protects Normal and Secure world OSes. This is a performance optimization limiting the need for nested paging.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
 		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
-		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2016</td>
+		<td class="col_work">   <a href="https://ieeexplore.ieee.org/abstract/document/7723848">PrivateZone</a></td>
+		<td class="col_venue">  TDSC</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span><span class="badge text-bg-success">Virt</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
+		<td class="col_ideas">  Similar to OSP Hypervisor, prevents potential for enclave privilege escalation by running enclaves in the Normal world. Difference is that the TZASC isn't dynamically adjusted and the normal world and enclaves always use nested page tables to enforce isolation. Android applications can be split into an enclave and non-enclave segment.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
 		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
