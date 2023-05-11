@@ -1166,6 +1166,24 @@ Historically, the open source software community rightfully was extremely wary o
 
 
 	<tr>
+		<td class="col_year">   2020</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/3373376.3378469">Occlum</a></td>
+		<td class="col_venue">  ASPLOS</td>
+		<td class="col_domain"> <span class="badge" style="background-color: var(--bs-pink);">SGX</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process Group</span></td>
+		<td class="col_ideas">  Supports better performance for SGX enclaves by running multiple processes within the same enclave with a custom LibOS. Creates process SFI boundaries using Intel MPX instructions to instrument memory access protections, and instruments labels and jumps with checks to ensure CFI. Later versions (Next-Gen Occlum), improve system call performance by using Rust async/await and io_uring-based optimizations (<a href="https://www.youtube.com/watch?v=3qQHrUEzFX4">talk</a>) (<a href="https://occlum.io/">website</a>).</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <span class="badge text-bg-primary">ME</span></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
+	</tr>
+
+
+	<tr>
 		<td class="col_year">   2021</td>
 		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/3477132.3483554">TwinVisor</a></td>
 		<td class="col_venue">  SOSP</td>
