@@ -1258,6 +1258,24 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
 	</tr>
 
+
+	<tr>
+		<td class="col_year">   2021</td>
+		<td class="col_work">   <a href="https://www.ndss-symposium.org/ndss-paper/chancel-efficient-multi-client-isolation-under-adversarial-programs/">CHANCEL</a></td>
+		<td class="col_venue">  NDSS</td>
+		<td class="col_domain"> <span class="badge" style="background-color: var(--bs-pink);">SGX</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">SFI Client</span></td>
+		<td class="col_ideas">  Using a single SGX enclave, multiple distrusting client applications can be concurrently executed, protected via SFI instrumentation. LLVM adds memory isolation instrumentation to memory access and control-flow instructions, during the secure load process, the binary is disassembled to verify that the instrumentation is valid. Threads can communicate via shared memory regions, mediated through the SecureLayer runtime provided by CHANCEL.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <span class="badge text-bg-primary">ME</span></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <span class="badge text-bg-warning">Recompile</span></td>
+	</tr>
+
 	<tr>
 		<td class="col_year">   2021</td>
 		<td class="col_work">   <a href="https://dl.acm.org/doi/10.1145/3460120.3484782">Aion</a></td>
