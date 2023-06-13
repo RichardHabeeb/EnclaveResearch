@@ -111,7 +111,10 @@ Historically, the open source software community rightfully was extremely wary o
   <tr>
     <td><a href="https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html">Intel Software Guard Extensions (SGX)</a></td>
     <td>x86</td>
-    <td><a href="https://eprint.iacr.org/2016/086">Intel SGX Explained</a></td>
+    <td>
+        <a href="https://dl.acm.org/doi/10.1145/2487726.2488368">Innovative Instructions... (McKeen et al.)</a>,
+        <a href="https://eprint.iacr.org/2016/086">Intel SGX Explained</a>
+    </td>
 
     <td>
 		All-in-one hardware extension for enclave segments of processes. Added instructions to the ISA (EENTER, ECREATE, <em>etc.</em>). Enclave page cache (EPC) is encrypted before being written to DRAM.
@@ -471,7 +474,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_IO">     <i class="bi bi-question-lg"></i></td>
 		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
 	</tr>
-	
+
 	<tr>
 		<td class="col_year">   2004</td>
 		<td class="col_work">   <a href="https://ieeexplore.ieee.org/abstract/document/1301329">SWATT</a></td>
@@ -643,6 +646,24 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
 
+
+	<tr id="SPM">
+		<td class="col_year">   2010</td>
+		<td class="col_work">   <a href="https://link.springer.com/chapter/10.1007/978-3-642-16161-2_20">SPM (Strackx et. al.)</a></td>
+		<td class="col_venue">  SecureComm</td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
+		<td class="col_ideas">  Early hardware design for a memory protection system for "self-protecting modules" (SPMs) based on the address in the program counter (PC) register. Modules have confidentiality and integrity from the kernel in terms of memory access, but interrupt register swapping and a number of other issues are future work.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
 	<tr>
 		<td class="col_year">   2010-2013</td>
 		<td class="col_work">   <a href="https://www.toppers.jp/en/safeg.html">SafeG</a></td>
@@ -678,13 +699,13 @@ Historically, the open source software community rightfully was extremely wary o
 	</tr>
 
 
-	<tr>
+	<tr id="SMART">
 		<td class="col_year">   2012</td>
 		<td class="col_work">   <a href="https://www.ics.uci.edu/~gts/paps/smart.pdf">SMART</a></td>
 		<td class="col_venue">  NDSS</td>
 		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Generic</span></td>
-		<td class="col_ideas">  Demonstrates very minimal hardware extensions needed in order to establish a root of trust for an enclave. Using a challenge-response protocol, a remote verifier can dynamically attest a region of memory. The key needed create the response must be stored in a special ROM which is only readable by the SMART ROM code in charge of generating a response. Must be paired with other approaches to construct full enclaves.</td>
+		<td class="col_ideas">  Demonstrates very minimal hardware extensions needed in order to establish a dynamic root of trust for an enclave. Using a challenge-response protocol, a remote verifier can dynamically attest a region of memory. The key needed create the response must be stored in a special ROM which is only readable by the SMART ROM code in charge of generating a response. Must be paired with other approaches to construct full enclaves.</td>
 		<td class="col_C">      <i class="bi bi-dash-lg"></i></td>
 		<td class="col_I">      <i class="bi bi-dash-lg"></i></td>
 		<td class="col_A">      <i class="bi bi-dash-lg"></i></td>
@@ -727,6 +748,24 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_IO">     <span class="badge text-bg-warning">Para</span></td>
 		<td class="col_legacy"> <span class="badge text-bg-warning">RT</span></td>
+	</tr>
+
+
+	<tr>
+		<td class="col_year">   2013</td>
+		<td class="col_work">   <a href="https://www.usenix.org/conference/usenixsecurity13/technical-sessions/presentation/noorman">Sancus</a></td>
+		<td class="col_venue">  Usenix Security</td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark"></span></td>
+		<td class="col_ideas">  A hardware architecture for enclaves on embedded devices using a PC-based memory access control scheme from <a href="#SPM">SPM (Strackx et. al.)</a> and dynamic root-of-trust from <a href="#SMART">SMART</a>. Provides an architecture for remote attestation of enclaves. Enclaves cannot be interrupted, and have dedicated entry points to prevent ROP attacks. Provides a scheme for interaction among enclaves via linking or IPC; the caller can authenticate the callee using a nonce and MAC at link time. For IPC communication a (transparent) MAC-based handshake is proposed.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
 
 	<tr>
@@ -780,13 +819,13 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <span class="badge text-bg-info">Ported</span></td>
 	</tr>
 
-	<tr>
+	<tr id="TrustLite">
 		<td class="col_year">   2014</td>
 		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/2592798.2592824">TrustLite</a></td>
 		<td class="col_venue">  EuroSys</td>
 		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
-		<td class="col_ideas">  Hardware is proposed for small embedded devices without virtualization to extent the memory protection unit's (MPU) protection  to include a column for code location. On a memory access, the table is indexed using the IP into the code column to determine whether the target address is accessible. Additional hardware is also needed to save register state of enclaves so leakage doesn't occur on interrupts.</td>
+		<td class="col_ideas">  Hardware is proposed for small embedded devices without virtualization to extend the memory protection unit's (MPU) protection to include a column for code location. On a memory access, the table is indexed using the IP into the code column to determine whether the target address is accessible. Additional hardware is also needed to save register state of enclaves so leakage doesn't occur on interrupts. Peripheral/IO access is provided by via MMIO access from enclaves, protected by the MPU. Scheduling is performed by the untrusted OS.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
@@ -867,6 +906,25 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_legacy"> <span class="badge text-bg-warning">Recompile</span></td>
 	</tr>
+
+	<tr>
+		<td class="col_year">   2015</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/10.1145/2744769.2744922">TyTAN</a></td>
+		<td class="col_venue">  DAC</td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  TyTAN extends the EA-MPU design from <a href="#TrustLite">TrustLite</a> to implement an open system which can support dynamic loading of enclaves on FreeRTOS. Synchronous and Asynchronous secure IPC is also supported between enclaves using shared memory and a proxy to assist with authentication. Enclaves are protected from the OS in terms of spatial isolation, but are still scheduled by the OS, so lack availability guarantees.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <span class="badge text-bg-warning">Divided</span></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+
 
 	<tr>
 		<td class="col_year">   2016</td>
@@ -1201,6 +1259,23 @@ Historically, the open source software community rightfully was extremely wary o
 	</tr>
 
 	<tr>
+		<td class="col_year">   2021</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/10.1145/3460120.3484782">Aion</a></td>
+		<td class="col_venue">  CCS</td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Builds upon Sancus 2.0 to support enclaves on an open embedded system, adding an exception engine in hardware which allows both enclaves and non-enclaves to be preempted. A scheduler enclave is used to allow availability guarantees while preventing the OS from arbitrarily changing the scheduling; this enclave is given sole control of the interrupts.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">    <span class="badge text-bg-info">Ported</span> </td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+	<tr>
 		<td class="col_year">   2022</td>
 		<td class="col_work">   <a href="https://ieeexplore.ieee.org/abstract/document/9833604">RT-TEE</a></td>
 		<td class="col_venue">  IEEE S&amp;P</td>
@@ -1251,7 +1326,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
 	</tr>
 
-	
+
 
 <!--
 	<tr>
