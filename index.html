@@ -1308,7 +1308,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
 		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
 		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
-		<td class="col_IO">    <span class="badge text-bg-info">Ported</span> </td>
+		<td class="col_IO">     <span class="badge text-bg-info">Ported</span></td>
 		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
 
@@ -1343,7 +1343,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
 		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
-		<td class="col_IO">    <span class="badge text-bg-info">Sharing</span> </td>
+		<td class="col_IO">     <span class="badge text-bg-info">Sharing</span></td>
 		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
 
@@ -1381,6 +1381,22 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
 	</tr>
 
+	<tr>
+		<td class="col_year">   2022</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/3548606.3560627">StrongBox</a></td>
+		<td class="col_venue">  CCS</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">GPU Task</span></td>
+		<td class="col_ideas">  Supports enclave usage of a GPU on an ARM SoC shared CPU/GPU memory model. Secure GPU tasks are submitted to the GPU driver in the normal world in ciphertext form, when the task is prepared to be scheduled, the GPU driver is updated to issue an SMC to invoke the EL3 StrongBox runtime. The runtime decrpyts the data and kernel code and submits the task to the GPU. At the same time the runtime also disables access to GPU MMIO and IRQs via nested paging and changing the interrupt controller configuration.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <span class="badge text-bg-info">Sharing</span></td>
+		<td class="col_legacy"> <span class="badge text-bg-info">Ported</span></td>
+	</tr>
 
 
 <!--
