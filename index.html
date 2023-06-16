@@ -1181,6 +1181,25 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <span class="badge text-bg-info">Refactored</span></td>
 	</tr>
 
+
+	<tr>
+		<td class="col_year">   2018</td>
+		<td class="col_work">   <a href="https://www.usenix.org/conference/osdi18/presentation/volos">Graviton</a></td>
+		<td class="col_venue">  OSDI</td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">GPU Context</span></td>
+		<td class="col_ideas">  Presents an architecture for enclaves on a GPU with minimal hardware extensions. Commands for setting up GPU kernels are encrypted and routed through the command processor instead of allowing arbitrary CPU modification of GPU page tables over MMIO. The GPU is extended to support a burned-in private attestation key for creating secure communication channels, and it is updated to support protected and hidden on-chip memory.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <span class="badge text-bg-primary">ME</span></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <span class="badge text-bg-dark">GPU</span></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
+
 	<tr>
 		<td class="col_year">   2019</td>
 		<td class="col_work">   <a href="https://dl.acm.org/doi/10.1145/3319535.3363205">SecTEE</a></td>
@@ -1335,9 +1354,27 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
 		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
 		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
-		<td class="col_IO">    <span class="badge text-bg-info">Ported</span> </td>
+		<td class="col_IO">     <span class="badge text-bg-info">Ported</span></td>
 		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
+
+	<tr>
+		<td class="col_year">   2022</td>
+		<td class="col_work">   <a href="https://www.usenix.org/conference/usenixsecurity22/presentation/aliaj">GAROTA</a></td>
+		<td class="col_venue">  Usenix Security</td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Designs and formally verifies a system allowing interrupts to be configured only by trusted software. The hardware is configured to use a PC-based memory integrity scheme, i.e. only writes from the trusted software address range can update the protected memory. Interrupt configurations are also only allowed by trusted software. Availability is supported by configuring a interrupt to launch an interrupt handler in the protected memory. Formal verification is done using model checking with Linear Temporal Logic (LTL) specifications, Verilog and RTL hardware designs are converted and checked against the LTL specs.</td>
+		<td class="col_C">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
 
 	<tr>
 		<td class="col_year">   2022</td>
@@ -1352,7 +1389,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
 		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
-		<td class="col_IO">    <span class="badge text-bg-info">Sharing</span> </td>
+		<td class="col_IO">     <span class="badge text-bg-info">Sharing</span></td>
 		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
 
@@ -1390,6 +1427,22 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <i class="bi bi-check-lg"></i></td>
 	</tr>
 
+	<tr>
+		<td class="col_year">   2022</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/3548606.3560627">StrongBox</a></td>
+		<td class="col_venue">  CCS</td>
+		<td class="col_domain"> <span class="badge text-bg-secondary">TrustZone</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">GPU Task</span></td>
+		<td class="col_ideas">  Supports enclave usage of a GPU on an ARM SoC shared CPU/GPU memory model. Secure GPU tasks are submitted to the GPU driver in the normal world in ciphertext form, when the task is prepared to be scheduled, the GPU driver is updated to issue an SMC to invoke the EL3 StrongBox runtime. The runtime decrpyts the data and kernel code and submits the task to the GPU. At the same time the runtime also disables access to GPU MMIO and IRQs via nested paging and changing the interrupt controller configuration.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <span class="badge text-bg-info">Sharing</span></td>
+		<td class="col_legacy"> <span class="badge text-bg-info">Ported</span></td>
+	</tr>
 
 
 <!--
