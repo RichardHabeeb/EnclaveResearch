@@ -54,7 +54,10 @@ Historically, the open source software community rightfully was extremely wary o
   DEDICATED PROCESSOR CORES
 ########################################################################### -->
   <tr>
-    <td>Dedicated Processor Cores</td>
+    <td>
+		Dedicated Processor Cores<br>
+		<span class="badge text-bg-info">Multicore</span>
+	</td>
     <td>*</td>
     <td>
 		<a href="https://arxiv.org/abs/1705.06932">Jailhouse</a>,
@@ -78,7 +81,10 @@ Historically, the open source software community rightfully was extremely wary o
   VIRTUALIZATION
 ########################################################################### -->
   <tr>
-    <td>Virtualization + Trusted Boot</td>
+    <td>
+		Virtualization + Trusted Boot<br>
+		<span class="badge text-bg-success">Virt</span>
+	</td>
     <td>*</td>
     <td>
 		<a href="https://www.usenix.org/conference/usenixsecurity21/presentation/li-shih-wei">seKVM</a>,
@@ -109,7 +115,10 @@ Historically, the open source software community rightfully was extremely wary o
   INTEL SGX
 ########################################################################### -->
   <tr>
-    <td><a href="https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html">Intel Software Guard Extensions (SGX)</a></td>
+    <td>
+		<a href="https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html">Intel Software Guard Extensions (SGX)</a><br>
+		<span class="badge" style="background-color: var(--bs-pink);">SGX</span>
+	</td>
     <td>x86</td>
     <td>
         <a href="https://dl.acm.org/doi/10.1145/2487726.2488368">Innovative Instructions... (McKeen et al.)</a>,
@@ -139,7 +148,10 @@ Historically, the open source software community rightfully was extremely wary o
   INTEL TDX
 ########################################################################### -->
   <tr>
-    <td><a href="https://www.intel.com/content/www/us/en/developer/articles/technical/intel-trust-domain-extensions.html">Intel Trust Domain Extensions (TDX)</a></td>
+    <td>
+		<a href="https://www.intel.com/content/www/us/en/developer/articles/technical/intel-trust-domain-extensions.html">Intel Trust Domain Extensions (TDX)</a><br>
+		<span class="badge text-bg-success">Virt</span>
+	</td>
     <td>x86</td>
     <td></td>
     <td>
@@ -164,7 +176,10 @@ Historically, the open source software community rightfully was extremely wary o
   AMD SEV
 ########################################################################### -->
   <tr>
-    <td><a href="https://developer.amd.com/sev/">AMD Secure Encrypted Virtualization (SEV), SEV Encrypted State (SEV-ES), SEV Secure Nested Paging (SEV-SNP)</a></td>
+    <td>
+		<a href="https://developer.amd.com/sev/">AMD Secure Encrypted Virtualization (SEV), SEV Encrypted State (SEV-ES), SEV Secure Nested Paging (SEV-SNP)</a><br>
+		<span class="badge text-bg-success">Virt</span>
+	</td>
     <td>x86</td>
     <td>
 		<a href="https://dl.acm.org/doi/abs/10.1145/945445.945464">Terra</a>,
@@ -193,7 +208,10 @@ Historically, the open source software community rightfully was extremely wary o
   ARM TRUSTZONE
 ########################################################################### -->
   <tr>
-    <td><a href="https://www.arm.com/technologies/trustzone-for-cortex-a">ARM TrustZone</a> + Bus Security</td>
+    <td>
+		<a href="https://www.arm.com/technologies/trustzone-for-cortex-a">ARM TrustZone</a> + Bus Security<br>
+		<span class="badge text-bg-secondary">TrustZone</span>
+	</td>
     <td>ARMv7, ARMv8</td>
     <td>
 		<a href="https://dl.acm.org/doi/abs/10.1145/3291047">Pinto Survey</a>,
@@ -222,7 +240,10 @@ Historically, the open source software community rightfully was extremely wary o
   ARM CCA
 ########################################################################### -->
   <tr>
-    <td><a href="https://www.arm.com/architecture/security-features/arm-confidential-compute-architecture">ARM Confidential Compute Architecture (CCA)</a></td>
+    <td>
+		<a href="https://www.arm.com/architecture/security-features/arm-confidential-compute-architecture">ARM Confidential Compute Architecture (CCA)</a><br>
+		<span class="badge text-bg-secondary">TrustZone</span>
+	</td>
     <td>ARMv9</td>
     <td>
 		<a href="https://www.usenix.org/conference/osdi22/presentation/li">Li <em>et al.</em></a>
@@ -279,7 +300,10 @@ Historically, the open source software community rightfully was extremely wary o
   RISC-V MACHINE/PMP
 ########################################################################### -->
   <tr>
-    <td>RISC-V Machine Mode (M-Mode)</td>
+    <td>
+		RISC-V Machine Mode (M-Mode)<br>
+		<span class="badge" style="background-color: var(--bs-orange);">RISC-V</span>
+	</td>
     <td>RISC-V</td>
     <td>
 		<a href="https://courses.cs.washington.edu/courses/cse481a/20sp/readings/riscv-priv.pdf">RISC-V ISA Manual</a>,
@@ -307,17 +331,22 @@ Historically, the open source software community rightfully was extremely wary o
   SOFTWARE ISOLATION
 ########################################################################### -->
   <tr>
-    <td>Pure Software Isolation</td>
+    <td>
+		Pure Software Approaches<br>
+		<span class="badge" style="background-color: var(--bs-purple);">Software</span>
+	</td>
     <td>*</td>
     <td>
+		<a href="https://ieeexplore.ieee.org/abstract/document/1301329">SWATT</a>,
+		<a href="https://dl.acm.org/doi/abs/10.1145/1095810.1095812">Pioneer</a>,
 		<a href="https://dl.acm.org/doi/abs/10.1145/2654822.2541986">Virtual Ghost</a>,
 		<a href="https://www.usenix.org/conference/osdi20/presentation/narayanan-vikram">RedLeaf</a>
 	</td>
     <td>
-		Language-based isolation and software-fault isolation techniques, including control-flow integrity (CFI), type safety, proof-carrying code (PCC), typed assembly (TAL), or formal verification may be useful for creating enclaves and some of these techniques have been explored in the past.
+		Language-based isolation and software-fault isolation techniques, including control-flow integrity (CFI), type safety, proof-carrying code (PCC), typed assembly (TAL), or formal verification may be useful for creating enclaves and some of these techniques have been explored in the past. Older works used nearly-perfectly optimized hashing functions to establish a root of trust based on computation time, requiring only software modifications.
 	</td>
 	<td>
-		No known mechanisms.
+		Timing-based software root of trust.
 	</td>
     <td>
 		Project specific, but often the compiler is part of the TCB.
@@ -357,15 +386,16 @@ Historically, the open source software community rightfully was extremely wary o
   CUSTOM PROCESSOR DESIGN
 ########################################################################### -->
 	<tr>
-		<td>Custom Processor Design/FPGA</td>
+		<td>
+			Custom Processor Design/FPGA<br>
+			<span class="badge text-bg-primary">Hardware</span>
+		</td>
 		<td>*</td>
 		<td>
-			<a href="http://csg.csail.mit.edu/pubs/memos/Memo-474/Memo-474.pdf">AEGIS</a>,
-			<a href="https://ieeexplore.ieee.org/document/5416657">Bastion</a>,
-			<a href="https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/costan">Sanctum</a>
+			<a href="https://ieeexplore.ieee.org/abstract/document/7807249">Maene Survey 2018</a>
 		</td>
 		<td>
-			Outside of industry-provided hardware primitives, some academic proposals have demonstrated major and minor changes to hardware architectures to support enclave-like security.
+			Outside of industry-provided hardware primitives, a number of academic proposals have demonstrated major and minor changes to hardware architectures to support enclave-like security.
 		</td>
 		<td>
 			Implementation specific
@@ -751,7 +781,7 @@ Historically, the open source software community rightfully was extremely wary o
 	</tr>
 
 
-	<tr>
+	<tr id="Sancus">
 		<td class="col_year">   2013</td>
 		<td class="col_work">   <a href="https://www.usenix.org/conference/usenixsecurity13/technical-sessions/presentation/noorman">Sancus</a></td>
 		<td class="col_venue">  Usenix Security</td>
@@ -924,6 +954,22 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
 
+	<tr>
+		<td class="col_year">   2015</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/2818000.2856129">Soteria</a></td>
+		<td class="col_venue">  ACSAC</td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Extends <a href="#Sancus">Sancus</a> to support offline confidential code loading in hardware. The design provides additional modules which are capable of decrypting other modules based on keys provided by the hardware.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
 
 
 	<tr>
@@ -1282,7 +1328,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_venue">  CCS</td>
 		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
 		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
-		<td class="col_ideas">  Builds upon Sancus 2.0 to support enclaves on an open embedded system, adding an exception engine in hardware which allows both enclaves and non-enclaves to be preempted. A scheduler enclave is used to allow availability guarantees while preventing the OS from arbitrarily changing the scheduling; this enclave is given sole control of the interrupts.</td>
+		<td class="col_ideas">  Builds upon <a href="#Sancus">Sancus</a> to support enclaves on an open embedded system, adding an exception engine in hardware which allows both enclaves and non-enclaves to be preempted. A scheduler enclave is used to allow availability guarantees while preventing the OS from arbitrarily changing the scheduling; this enclave is given sole control of the interrupts.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
 		<td class="col_A">      <i class="bi bi-check-lg"></i></td>
