@@ -993,7 +993,9 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_year">   2016</td>
 		<td class="col_work">   <a href="https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/costan">Sanctum</a></td>
 		<td class="col_venue">  Usenix Security</td>
-		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span><br>
+								<span class="badge" style="background-color: var(--bs-orange);">RISC-V</span>
+		</td>
 		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
 		<td class="col_ideas">  An architecture for running enclaves with minimally invasive hardware changes. Provides a transparent implementation on RISC-V. Addresses previous cache side channel attacks in SGX by using a page coloring scheme to partition the cache.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
@@ -1239,7 +1241,10 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_year">   2019</td>
 		<td class="col_work">   <a href="https://www.ndss-symposium.org/ndss-paper/ginseng-keeping-secrets-in-registers-when-you-distrust-the-operating-system/">Ginseng</a></td>
 		<td class="col_venue">  NDSS</td>
-		<td class="col_domain"> <span class="badge" style="background-color: var(--bs-purple);">Software</span><span class="badge text-bg-success">Virt</span></td>
+		<td class="col_domain">
+			<span class="badge" style="background-color: var(--bs-purple);">Software</span><br>
+			<span class="badge text-bg-success">Virt</span>
+		</td>
 		<td class="col_target"> <span class="badge text-bg-dark">Segment</span></td>
 		<td class="col_ideas">  C/C++ language and compiler are extended to be able to mark variables and functions as sensitive. Compiler propagates sensitive tag, disallows sensitive registers to state spill onto the stack. When state must be saved, compiler adds SMC or HVC calls to invoke a service to encrypt and save the variables onto a secure stack. OS's ability to control page tables removed and an API is provided to support/check page table updates. While secrets are in play/in registers, all exceptions route to EL3 by updating the EL1 vector tables.</td>
 		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
@@ -1251,6 +1256,27 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
+
+	<tr>
+		<td class="col_year">   2019</td>
+		<td class="col_work">   <a href="https://www.ndss-symposium.org/ndss-paper/sanctuary-arming-trustzone-with-user-space-enclaves/">Sanctuary</a></td>
+		<td class="col_venue">  NDSS</td>
+		<td class="col_domain">
+			<span class="badge text-bg-secondary">TrustZone</span><br>
+			<span class="badge text-bg-info">Multicore</span>
+		</td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Reduces TCB of a TrustZone-based enclave by running it in the Normal world, at the cost of core utilization. Uses the TZC-400 bus controller's ability to distinguish the originating core's identity to create additional privilege levels on a per-core basis. This is used to allow enclaves to run isolated on dedicated cores while still executing in the Normal world. OP-TEE's Linux runtime is adapted to use the hotplugging feature of the Linux kernel to turn off a core before sending the enclave to be launched on that core via the EL3 firmware. Cache side channel resilience is automatic for the L1 (inner or core-local) cache, the L2 (outer or shared) cache could either be disabled; however, for ARMv8 data caches may not need this protection.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <span class="badge text-bg-dark">Cache</span></td>
+		<td class="col_IO">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+
 
 	<tr>
 		<td class="col_year">   2019</td>
@@ -1356,6 +1382,29 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_IO">     <span class="badge text-bg-info">Ported</span></td>
 		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
+	</tr>
+	
+	<tr>
+		<td class="col_year">   2021</td>
+		<td class="col_work">   <a href="https://www.usenix.org/conference/usenixsecurity21/presentation/bahmani">CURE</a></td>
+		<td class="col_venue">  Usenix Security</td>
+		<td class="col_domain">
+			<span class="badge text-bg-primary">Hardware</span><br>
+			<span class="badge" style="background-color: var(--bs-orange);">RISC-V</span>
+		</td>
+		<td class="col_target">
+			<span class="badge text-bg-dark">Process</span><br>
+			<span class="badge text-bg-dark">VM</span>
+		</td>
+		<td class="col_ideas">  Supports both user-space and kernel-space (including whole VM) enclaves with some hardware modifications. The cache is partitioned according to enclave ids, and the memory bus is updated to support protection for enclaves using peripheral devices and DMA. A machine-mode Security Monitor (SM) manages both types of enclaves. User space enclaves have a small library to support system calls. Devices requested by a kernel-level enclave are unmounted and the non-enclave OS turns off the target core for the kernel enclave using Linux hotplugging, the SM boots the kernel enclave on that core.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <span class="badge text-bg-dark">Cache</span></td>
+		<td class="col_IO">     <span class="badge text-bg-warning">Divided</span></td>
+		<td class="col_legacy"> <span class="badge text-bg-warning">Recompile</span></td>
 	</tr>
 
 	<tr>
