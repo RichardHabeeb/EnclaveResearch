@@ -734,7 +734,7 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_work">   <a href="https://www.ics.uci.edu/~gts/paps/smart.pdf">SMART</a></td>
 		<td class="col_venue">  NDSS</td>
 		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
-		<td class="col_target"> <span class="badge text-bg-dark">Generic</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Attest Only</span></td>
 		<td class="col_ideas">  Demonstrates very minimal hardware extensions needed in order to establish a dynamic root of trust for an enclave. Using a challenge-response protocol, a remote verifier can dynamically attest a region of memory. The key needed create the response must be stored in a special ROM which is only readable by the SMART ROM code in charge of generating a response. Must be paired with other approaches to construct full enclaves.</td>
 		<td class="col_C">      <i class="bi bi-dash-lg"></i></td>
 		<td class="col_I">      <i class="bi bi-dash-lg"></i></td>
@@ -744,6 +744,24 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_MA">     <span class="badge text-bg-info">Timing</span></td>
 		<td class="col_IO">     <i class="bi bi-dash-lg"></i></td>
 		<td class="col_legacy"> <i class="bi bi-dash-lg"></i></td>
+	</tr>
+
+
+	<tr>
+		<td class="col_year">   2012</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/10.1145/2420950.2420960">Masti <em>et. al.</em></a></td>
+		<td class="col_venue">  ACSAC</td>
+		<td class="col_domain"> <span class="badge text-bg-primary">Hardware</span></td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Implements an application aware memory protection unit, peripheral bus manager, scheduler, and atomicity monitors in hardware to support real-time enclaves. To prevent preemption at incorrect times, a new instruction is introduced to allow an application to mask interrupts for a bounded number of instructions.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <span class="badge text-bg-info">Sharing</span></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
 
 	<tr>
@@ -1383,7 +1401,28 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_IO">     <span class="badge text-bg-info">Ported</span></td>
 		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
-	
+
+
+	<tr>
+		<td class="col_year">   2021</td>
+		<td class="col_work">   <a href="https://dl.acm.org/doi/abs/10.1145/3460120.3484788">RealSWATT</a></td>
+		<td class="col_venue">  CCS</td>
+		<td class="col_domain">
+			<span class="badge" style="background-color: var(--bs-purple);">Software</span><br>
+			<span class="badge text-bg-info">Multicore</span>
+		</td>
+		<td class="col_target"> <span class="badge text-bg-dark">Attest Only</span></td>
+		<td class="col_ideas">  Dedicates a processor core to continuously run a software-based attestation scheme. The concerns for software-based attestation around timing delays in the network are circumvented by running the attestation scheme continuously; the prover sends a new nonce before receiving the current attestation result. Variations in transmission time must be significantly shorter than the time required for attestation. The hash function is selected to not allow a multicore attacker computational advantages to parallelization. Attestation covers all code and data sections. </td>
+		<td class="col_C">      <i class="bi bi-dash-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-dash-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-dash-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-check-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-question-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-dash-lg"></i></td>
+		<td class="col_IO">     <i class="bi bi-dash-lg"></i></td>
+		<td class="col_legacy"> <i class="bi bi-dash-lg"></i></td>
+	</tr>
+
 	<tr>
 		<td class="col_year">   2021</td>
 		<td class="col_work">   <a href="https://www.usenix.org/conference/usenixsecurity21/presentation/bahmani">CURE</a></td>
@@ -1491,6 +1530,26 @@ Historically, the open source software community rightfully was extremely wary o
 		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
 		<td class="col_IO">     <span class="badge text-bg-info">Sharing</span></td>
 		<td class="col_legacy"> <span class="badge text-bg-info">Ported</span></td>
+	</tr>
+
+	<tr>
+		<td class="col_year">   2023</td>
+		<td class="col_work">   <a href="https://www.ndss-symposium.org/ndss-paper/mytee-own-the-trusted-execution-environment-on-embedded-devices/">MyTEE</a></td>
+		<td class="col_venue">  NDSS</td>
+		<td class="col_domain">
+			<span class="badge text-bg-secondary">TrustZone</span>
+			<span class="badge text-bg-success">Virt</span>
+		</td>
+		<td class="col_target"> <span class="badge text-bg-dark">Process</span></td>
+		<td class="col_ideas">  Implements TEE/Enclave support for ARM devices that don't have bus security mechanisms like the TZASC, TZMA, and TZPC. An EL3 active integrity monitor maintains control of the EL2 state-2 page tables, creating a small hypervisor service for trapping, filtering, and emulating DMA requests and handling other MMIO requests. Enclaves route device IO through the untrusted kernel via a proxy. The kernel invokes hypercalls to escalate its privilege when it wants to access a privileged device. The hypercalls perform the MMIO on behalf of the kernel, in a device-dependent way, storing results in a EL2 secure buffer to be read by the enclave.</td>
+		<td class="col_C">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_I">      <i class="bi bi-check-lg"></i></td>
+		<td class="col_A">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_RA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_P">      <i class="bi bi-x-lg"></i></td>
+		<td class="col_MA">     <i class="bi bi-x-lg"></i></td>
+		<td class="col_IO">     <span class="badge text-bg-info">Sharing</span></td>
+		<td class="col_legacy"> <i class="bi bi-x-lg"></i></td>
 	</tr>
 
 
